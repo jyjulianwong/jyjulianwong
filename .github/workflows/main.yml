@@ -30,7 +30,11 @@ jobs:
       - name: Set GitHub credentials
         uses: oleksiyrudenko/gha-git-credentials@v2-latest
         with:
-          token: '${{ secrets.GITHUB_TOKEN }}'
+          global: true
+          name: 'Julian Wong'
+          email: 'julianwong2000@gmail.com'
+          actor: 'jyjulianwong'
+          token: '${{ secrets.DEPLOY_TOKEN }}'
           
       - name: Deploy to GitHub Pages
         run: npm run deploy
