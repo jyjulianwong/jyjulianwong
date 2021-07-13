@@ -1,0 +1,11 @@
+name: "Deploy to GitHub Pages"
+description: "Deploy to GitHub Pages using gh-pages"
+author: "julianwong2000@gmail.com"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+
+branding:
+  icon: "globe"
+  color: "purple"
