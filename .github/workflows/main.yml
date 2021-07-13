@@ -34,7 +34,7 @@ jobs:
           name: 'Julian Wong'
           email: 'julianwong2000@gmail.com'
           actor: 'jyjulianwong'
-          token: '${{ secrets.DEPLOY_TOKEN }}'
+          token: '${{ secrets.GITHUB_TOKEN }}'
           
       - name: Deploy to GitHub Pages
         run: npm run deploy
