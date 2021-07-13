@@ -1,4 +1,4 @@
-name: GitHub Pages Deployment Workflow
+name: GitHub Pages Deployment
 
 on: 
   push:
@@ -33,6 +33,4 @@ jobs:
           token: '${{ secrets.GITHUB_TOKEN }}'
           
       - name: Deploy to GitHub Pages
-        run: | 
-          git remote add origin https://github.com/jyjulianwongg/jyjulianwong.git
-          npm run deploy
+        run: npm run deploy
