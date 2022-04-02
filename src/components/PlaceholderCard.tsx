@@ -1,5 +1,9 @@
-import ProfileImageCard from "./ProfileImageCard";
+import ProfileImageCard from './ProfileImageCard';
 
+/**
+ * A placeholder card component.
+ * @constructor
+ */
 function PlaceholderCard(): JSX.Element {
   return (
     <ProfileImageCard

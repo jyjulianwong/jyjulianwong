@@ -1,4 +1,4 @@
-import { Card, Container, Image } from "react-bootstrap";
+import {Card, Container, Image} from 'react-bootstrap';
 
 interface ProfileImageCardProps {
   imageSource?: string;
@@ -6,6 +6,11 @@ interface ProfileImageCardProps {
   description: string;
 }
 
+/**
+ * A card component displaying a user's profile.
+ * @param {ProfileImageCardProps} props - A list of properties.
+ * @constructor
+ */
 function ProfileImageCard(props: ProfileImageCardProps): JSX.Element {
   return (
     <Container className="my-3">
@@ -15,7 +20,7 @@ function ProfileImageCard(props: ProfileImageCardProps): JSX.Element {
             <Container className="mb-5">
               <Image
                 className="shadow"
-                style={{ width: "200px", height: "200px" }}
+                style={{width: '200px', height: '200px'}}
                 src={props.imageSource}
                 roundedCircle
               />
