@@ -20,7 +20,7 @@ function App() {
             <ProfileCard
               imageSource="https://avatars.githubusercontent.com/u/33598849"
               title="Julian Wong"
-              description="Final-Year M.Eng. Computing Student @ Imperial College London"
+              description="Final-Year M.Eng. Computing (Artificial Intelligence and Machine Learning) Student @ Imperial College London"
             />
           </Col>
           <Col xs={6}>
