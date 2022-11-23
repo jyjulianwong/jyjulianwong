@@ -23,7 +23,7 @@ function App() {
               description="Final-Year M.Eng. Computing (Artificial Intelligence and Machine Learning) Student @ Imperial College London"
             />
           </Col>
-          <Col xs={6}>
+          <Col xs={12} lg={6}>
             <PortfolioCard
               imageSource={require("./assets/amphere.png").default}
               title="Amphere Web App"
@@ -35,7 +35,7 @@ function App() {
               redirect="https://github.com/jyjulianwong/Amphere-WebApp-React"
             />
           </Col>
-          <Col xs={6}>
+          <Col xs={12} lg={6}>
             <PortfolioCard
               imageSource={require("./assets/catapultsports.png").default}
               title="RaceWatch"
@@ -47,7 +47,7 @@ function App() {
               redirect="https://sbgsportssoftware.com/product/racewatch-for-teams"
             />
           </Col>
-          <Col xs={6}>
+          <Col xs={12} lg={6}>
             <PortfolioCard
               imageSource={require("./assets/biiah.png").default}
               title="Biiah for iOS"
@@ -59,7 +59,7 @@ function App() {
               redirect="https://biiah.com"
             />
           </Col>
-          <Col xs={6}>
+          <Col xs={12} lg={6}>
             <PlaceholderCard/>
           </Col>
         </Row>
