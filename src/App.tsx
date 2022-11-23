@@ -1,8 +1,8 @@
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import FixedNavbar from './components/FixedNavbar';
-import ProfileImageCard from './components/ProfileImageCard';
-import PlaceholderCard from './components/PlaceholderCard';
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import FixedAnimatedNavbar from "./components/FixedAnimatedNavbar";
+import ProfileCard from "./components/ProfileCard";
+import PlaceholderCard from "./components/PlaceholderCard";
 
 /**
  * Entry point of web app.
@@ -11,16 +11,11 @@ import PlaceholderCard from './components/PlaceholderCard';
 function App() {
   return (
     <div className="App">
-      <FixedNavbar/>
-      <ProfileImageCard
-        imageSource="https://avatars.githubusercontent.com/u/33598849?v=4"
+      <FixedAnimatedNavbar />
+      <ProfileCard
+        imageSource="https://avatars.githubusercontent.com/u/33598849"
         title="Julian Wong"
-        description={
-          [
-            'iOS Developer @ The Choral Hub',
-            'M.Eng. Computing III @ Imperial College London',
-          ].join(' \u2022 ')
-        }
+        description="Final-Year M.Eng. Computing Student @ Imperial College London"
       />
       <PlaceholderCard/>
     </div>

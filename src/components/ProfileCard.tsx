@@ -1,6 +1,6 @@
 import {Card, Container, Image} from 'react-bootstrap';
 
-interface ProfileImageCardProps {
+interface ProfileCardProps {
   imageSource?: string;
   title: string;
   description: string;
@@ -8,10 +8,10 @@ interface ProfileImageCardProps {
 
 /**
  * A card component displaying a user's profile.
- * @param {ProfileImageCardProps} props - A list of properties.
+ * @param {ProfileCardProps} props - A list of properties.
  * @constructor
  */
-function ProfileImageCard(props: ProfileImageCardProps): JSX.Element {
+function ProfileCard(props: ProfileCardProps): JSX.Element {
   return (
     <Container className="my-3">
       <Card border="light" className="shadow">
@@ -36,4 +36,4 @@ function ProfileImageCard(props: ProfileImageCardProps): JSX.Element {
   );
 }
 
-export default ProfileImageCard;
+export default ProfileCard;
