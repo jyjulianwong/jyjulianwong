@@ -3,7 +3,7 @@
 html {
   --bg-wall: #404040;
   --sh-wall: #202020;
-  --bg-zoomed: #404040;
+  --sh-zoomed: #A0A0A0;
   --bg-terminal-homebrew: #000000;
   --bg-terminal-ubuntu: #290C21;
   --cl-terminal-homebrew-green: chartreuse;
@@ -44,9 +44,9 @@ html {
 
 .zoomable {
   cursor: pointer;
-  transition: background-color 0.25s;
+  transition: filter 0.25s;
 }
 
 .zoomable:hover {
-  background-color: var(--bg-zoomed) !important;
+  filter: drop-shadow(5px 5px 0px var(--sh-zoomed));
 }
