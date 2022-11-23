@@ -3,11 +3,13 @@ import {Container, Navbar} from "react-bootstrap";
 import {RepeatingTimer} from "../models/RepeatingTimer";
 
 function FixedAnimatedNavbar(): JSX.Element {
-  const [showCursor, setShowCursor] = useState(false);
+  const text = "jyjulianwong";
+
+  const [tick, setTick] = useState(0);
 
   useEffect(() => {
     const repeatingTimer = new RepeatingTimer(() => {
-      setShowCursor(prevShowCursor => !prevShowCursor);
+      setTick(prevTick => (prevTick + 1) % (text.length + 1));
     }, 500);
 
     return () => {
@@ -16,9 +18,11 @@ function FixedAnimatedNavbar(): JSX.Element {
   }, []);
 
   return (
-    <Navbar bg="light" className="shadow" expand="lg">
+    <Navbar className="terminal-homebrew shadow" expand="lg">
       <Container>
-        <Navbar.Brand href="#">{showCursor ? "Julian Wong_" : "Julian Wong"}</Navbar.Brand>
+        <Navbar.Brand href="#" style={{color: "var(--cl-terminal-homebrew-green)"}}>
+          {">" + text.slice(0, tick) + ((tick % 2 == 0) ? "_" : "")}
+        </Navbar.Brand>
       </Container>
     </Navbar>
   );

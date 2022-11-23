@@ -13,20 +13,20 @@ interface ProfileCardProps {
  */
 function ProfileCard(props: ProfileCardProps): JSX.Element {
   return (
-    <Card border="light" className="shadow">
+    <Card className="terminal-homebrew shadow">
       <Card.Body>
         {props.imageSource && (
           <Container className="mb-3">
             <Image
               className="shadow"
-              style={{width: '200px', height: '200px'}}
+              style={{width: '240px', height: '240px'}}
               src={props.imageSource}
-              roundedCircle
+              rounded
             />
           </Container>
         )}
         <Card.Title>
-          <h1>{props.title}</h1>
+          <h1 className="terminal-head">{props.title}</h1>
         </Card.Title>
         <Card.Text>{props.description}</Card.Text>
       </Card.Body>
