@@ -1,8 +1,8 @@
-import ProfileImageCard from "./ProfileImageCard";
+import ProfileCard from "./ProfileCard";
 
 function PlaceholderCard(): JSX.Element {
   return (
-    <ProfileImageCard
+    <ProfileCard
       title="Coming soon&hellip;"
       description="This site is currently under development. Come back soon!"
     />
