@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { Container, Navbar } from "react-bootstrap";
-import { RepeatingTimer } from "../models/RepeatingTimer";
+import {useEffect, useState} from "react";
+import {Container, Navbar} from "react-bootstrap";
+import {RepeatingTimer} from "../models/RepeatingTimer";
 
 function FixedAnimatedNavbar(): JSX.Element {
   const [showCursor, setShowCursor] = useState(false);
