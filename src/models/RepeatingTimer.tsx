@@ -9,7 +9,8 @@ class RepeatingTimer {
     private action: () => void,
     private interval: number,
     private stopOnNextIter = false,
-    private iter = 0
+    private iter = 0,
+    private iterOverflow = 65536
   ) {
     this.init();
   }
@@ -18,8 +19,8 @@ class RepeatingTimer {
     while (!this.stopOnNextIter) {
       await RepeatingTimer.delay(this.interval);
       this.action();
-      this.iter++;
-      console.log("RepeatingTimer: Iteration: " + this.iter);
+      this.iter = (this.iter + 1) % this.iterOverflow;
+      console.log("RepeatingTimer: Tick: " + this.iter);
     }
   }
 
@@ -28,4 +29,4 @@ class RepeatingTimer {
   }
 }
 
-export { RepeatingTimer };
+export {RepeatingTimer};
