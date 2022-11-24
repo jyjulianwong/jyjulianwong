@@ -21,7 +21,7 @@ function FixedAnimatedNavbar(): JSX.Element {
     <Navbar className="terminal-homebrew shadow" expand="lg">
       <Container>
         <Navbar.Brand href="#" style={{color: "var(--cl-terminal-homebrew-green)"}}>
-          {">" + text.slice(0, tick) + ((tick % 2 == 0) ? "_" : "")}
+          {"> " + text.slice(0, tick) + ((tick % 2 == 0) ? "_" : "")}
         </Navbar.Brand>
       </Container>
     </Navbar>
