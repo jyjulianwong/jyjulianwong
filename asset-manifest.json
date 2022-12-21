@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.bef5df95.chunk.css",
+    "main.js": "/static/js/main.cbc42f6c.chunk.js",
+    "main.js.map": "/static/js/main.cbc42f6c.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.b8d98745.js",
+    "runtime-main.js.map": "/static/js/runtime-main.b8d98745.js.map",
+    "static/css/2.4be38407.chunk.css": "/static/css/2.4be38407.chunk.css",
+    "static/js/2.03886fbf.chunk.js": "/static/js/2.03886fbf.chunk.js",
+    "static/js/2.03886fbf.chunk.js.map": "/static/js/2.03886fbf.chunk.js.map",
+    "static/js/3.e26cc100.chunk.js": "/static/js/3.e26cc100.chunk.js",
+    "static/js/3.e26cc100.chunk.js.map": "/static/js/3.e26cc100.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.4be38407.chunk.css.map": "/static/css/2.4be38407.chunk.css.map",
+    "static/css/main.bef5df95.chunk.css.map": "/static/css/main.bef5df95.chunk.css.map",
+    "static/js/2.03886fbf.chunk.js.LICENSE.txt": "/static/js/2.03886fbf.chunk.js.LICENSE.txt",
+    "static/media/amphere.png": "/static/media/amphere.97f7b9ca.png",
+    "static/media/biiah.png": "/static/media/biiah.e9c4f2ab.png",
+    "static/media/catapultsports.png": "/static/media/catapultsports.4e30d04f.png",
+    "static/media/julian.png": "/static/media/julian.fd90f2a3.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b8d98745.js",
+    "static/css/2.4be38407.chunk.css",
+    "static/js/2.03886fbf.chunk.js",
+    "static/css/main.bef5df95.chunk.css",
+    "static/js/main.cbc42f6c.chunk.js"
+  ]
+}
