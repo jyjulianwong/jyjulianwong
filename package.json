@@ -1,8 +1,8 @@
 {
   "name": "jyjulianwong",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
-  "homepage": "https://jyjulianwong.github.io/jyjulianwong",
+  "homepage": "https://jyjulianwong.github.io",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
