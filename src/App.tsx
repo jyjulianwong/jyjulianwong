@@ -12,8 +12,10 @@ import {Col, Row} from 'react-bootstrap';
 function App() {
   return (
     <div className="App">
-      <FixedAnimatedNavbar/>
-      <Row className="g-1">
+      <Row className="gx-0 gy-1">
+        <Col xs={12}>
+          <FixedAnimatedNavbar/>
+        </Col>
         <Col xs={12}>
           <ProfileCard
             imageSource={require("./assets/julian.png").default}
@@ -62,12 +64,12 @@ function App() {
             redirectText="Learn more"
           />
         </Col>
-      </Row>
-      <Row className="mt-5 mb-3 px-3">
         <Col xs={12}>
-          jyjulianwong.github.io v{process.env.REACT_APP_VERSION}.
-          <br/>
-          Authored by Julian Wong in 2022.
+          <div className={"mt-5 mb-3"}>
+            jyjulianwong.github.io v{process.env.REACT_APP_VERSION}.
+            <br/>
+            Authored by Julian Wong in 2022.
+          </div>
         </Col>
       </Row>
     </div>
