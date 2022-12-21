@@ -9,6 +9,7 @@ interface PortfolioCardProps {
   duration: string;
   description: string;
   redirect?: string;
+  redirectText?: string;
   darkened?: boolean;
 }
 
@@ -18,20 +19,18 @@ interface PortfolioCardProps {
  * @constructor
  */
 function PortfolioCard(props: PortfolioCardProps): JSX.Element {
-  const redirectToProj = () => {
-    if (props.redirect)
-      window.open(props.redirect);
-  };
-
   const bgClassName = props.darkened ? "bg-black" : "bg-white";
 
   return (
-    <div className={"px-3 py-5" + " " + bgClassName} onClick={redirectToProj}>
+    <div className={"px-3 py-5" + " " + bgClassName}>
       <Row className={"gx-1 gy-3"}>
         <Col xs={12}>
           <Container>
             <h1>{props.title}</h1>
-            {props.description}
+            <h6>{props.description}</h6>
+            {props.redirect && props.redirectText && (
+              <h5><a href={props.redirect} style={{textDecoration: "none"}}>{props.redirectText} &gt;</a></h5>
+            )}
           </Container>
         </Col>
         <Col xs={12}>
