@@ -4,13 +4,14 @@ import {RepeatingTimer} from "../models/RepeatingTimer";
 
 function FixedAnimatedNavbar(): JSX.Element {
   const text = "jyjulianwong";
+  const tickInterval = 750;
 
   const [tick, setTick] = useState(0);
 
   useEffect(() => {
     const repeatingTimer = new RepeatingTimer(() => {
       setTick(prevTick => (prevTick + 1) % (text.length + 1));
-    }, 500);
+    }, tickInterval);
 
     return () => {
       repeatingTimer.stop();
@@ -18,10 +19,10 @@ function FixedAnimatedNavbar(): JSX.Element {
   }, []);
 
   return (
-    <Navbar className="terminal-homebrew shadow" expand="lg">
+    <Navbar className="bg-white" expand="lg">
       <Container>
-        <Navbar.Brand href="#" style={{color: "var(--cl-terminal-homebrew-green)"}}>
-          {"> " + text.slice(0, tick) + ((tick % 2 == 0) ? "_" : "")}
+        <Navbar.Brand href="#">
+          {"> " + text + ((tick % 2 == 0) ? "_" : "")}
         </Navbar.Brand>
       </Container>
     </Navbar>
