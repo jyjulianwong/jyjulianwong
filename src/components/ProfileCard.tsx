@@ -26,8 +26,8 @@ function ProfileCard(props: ProfileCardProps): JSX.Element {
       }}
     >
       <Container className={"p-3 text-start"}>
-        <h1>{props.title}</h1>
-        {props.description}
+        <h1><mark>{props.title}</mark></h1>
+        <h6><mark>{props.description}</mark></h6>
       </Container>
     </div>
   );
