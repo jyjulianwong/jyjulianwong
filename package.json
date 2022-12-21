@@ -1,7 +1,7 @@
 {
   "name": "jyjulianwong",
   "version": "0.4.1",
-  "private": true,
+  "private": false,
   "homepage": "https://jyjulianwong.github.io",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
