@@ -62,7 +62,7 @@ function App() {
       </Row>
       <Row className="mt-5 mb-3 px-3">
         <Col xs={12}>
-          jyjulianwong.github.io/jyjulianwong v{process.env.REACT_APP_VERSION}.
+          jyjulianwong.github.io v{process.env.REACT_APP_VERSION}.
           <br/>
           Authored by Julian Wong in 2022.
         </Col>
