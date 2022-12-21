@@ -1,9 +1,10 @@
-import {Card, Container, Image} from 'react-bootstrap';
+import {Container} from 'react-bootstrap';
 
 interface ProfileCardProps {
   imageSource?: string;
   title: string;
   description: string;
+  darkened?: boolean;
 }
 
 /**
@@ -12,25 +13,23 @@ interface ProfileCardProps {
  * @constructor
  */
 function ProfileCard(props: ProfileCardProps): JSX.Element {
+  const bgClassName = props.imageSource ? "bg-image" : props.darkened ? "bg-black" : "bg-white";
   return (
-    <Card className="terminal-homebrew shadow">
-      <Card.Body>
-        {props.imageSource && (
-          <Container className="mb-3">
-            <Image
-              className="shadow"
-              style={{width: '240px', height: '240px'}}
-              src={props.imageSource}
-              rounded
-            />
-          </Container>
-        )}
-        <Card.Title>
-          <h1 className="terminal-head">{props.title}</h1>
-        </Card.Title>
-        <Card.Text>{props.description}</Card.Text>
-      </Card.Body>
-    </Card>
+    <div
+      className={"d-flex justify-content-center align-items-center" + " " + bgClassName}
+      style={{
+        height: 360,
+        backgroundImage: "url(" + props.imageSource + ")",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center"
+      }}
+    >
+      <Container className={"p-3 text-start"}>
+        <h1><mark>{props.title}</mark></h1>
+        <h6><mark>{props.description}</mark></h6>
+      </Container>
+    </div>
   );
 }
 

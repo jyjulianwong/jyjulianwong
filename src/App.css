@@ -1,52 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 
 html {
-  --bg-wall: #404040;
-  --sh-wall: #202020;
-  --sh-zoomed: #A0A0A0;
-  --bg-terminal-homebrew: #000000;
-  --bg-terminal-ubuntu: #290C21;
-  --cl-terminal-homebrew-green: chartreuse;
-  --cl-terminal-homebrew-white: ghostwhite;
-  --cl-terminal-ubuntu-white: ghostwhite;
-  background: var(--bg-wall);
+  --bg-white: white;
+  --bg-black: black;
+  --cl-white: black;
+  --cl-black: white;
+  --cl-gutter: #F0F0F0;
+  background: var(--cl-gutter);
+}
+
+mark {
+  line-height: 2;
+  background-color: var(--bg-white) !important;
+  color: var(--cl-white) !important;
 }
 
 .App {
-  background: var(--bg-wall);
-  font-family: "Ubuntu Mono", sans-serif;
+  background: var(--cl-gutter);
+  font-family: "Manrope", sans-serif;
+  font-weight: 300;
   font-size: medium;
   text-align: center;
-  color: var(--cl-terminal-homebrew-green);
+  color: var(--cl-white);
 }
 
-.terminal-homebrew {
-  background: var(--bg-terminal-homebrew) !important;
-  color: var(--cl-terminal-homebrew-green) !important;
+.bg-white {
+  background: var(--bg-white);
+  color: var(--cl-white) !important;
 }
 
-.terminal-ubuntu {
-  background: var(--bg-terminal-ubuntu) !important;
-  color: var(--cl-terminal-ubuntu-white) !important;
-}
-
-.terminal-head {
-  color: var(--cl-terminal-homebrew-white) !important;
-}
-
-.terminal-line {
-  text-align: left;
-}
-
-.shadow {
-  filter: drop-shadow(0px 0px 25px var(--sh-wall));
-}
-
-.zoomable {
-  cursor: pointer;
-  transition: filter 0.25s;
-}
-
-.zoomable:hover {
-  filter: drop-shadow(5px 5px 0px var(--sh-zoomed));
+.bg-black {
+  background: var(--bg-black);
+  color: var(--cl-black) !important;
 }

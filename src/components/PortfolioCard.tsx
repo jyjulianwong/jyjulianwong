@@ -1,4 +1,4 @@
-import {Card, ListGroup} from 'react-bootstrap';
+import {Col, Container, Row} from 'react-bootstrap';
 
 interface PortfolioCardProps {
   imageSource?: string;
@@ -9,6 +9,7 @@ interface PortfolioCardProps {
   duration: string;
   description: string;
   redirect?: string;
+  darkened?: boolean;
 }
 
 /**
@@ -22,34 +23,48 @@ function PortfolioCard(props: PortfolioCardProps): JSX.Element {
       window.open(props.redirect);
   };
 
+  const bgClassName = props.darkened ? "bg-black" : "bg-white";
+
   return (
-    <Card className={"terminal-homebrew shadow" + (props.redirect ? " zoomable" : "")} onClick={redirectToProj}>
-      {props.imageSource && (
-        <Card.Img variant="top" src={props.imageSource}/>
-      )}
-      <Card.Body>
-        <Card.Title>
-          <h1 className="terminal-head">{props.title}</h1>
-        </Card.Title>
-        <ListGroup className="list-group-flush">
-          <ListGroup.Item
-            className="terminal-ubuntu terminal-line">&#62; Company: <b>{props.company}</b>
-          </ListGroup.Item>
-          <ListGroup.Item
-            className="terminal-ubuntu terminal-line">&#62; Position: <b>{props.position}</b>
-          </ListGroup.Item>
-          <ListGroup.Item
-            className="terminal-ubuntu terminal-line">&#62; Location: <b>{props.location}</b>
-          </ListGroup.Item>
-          <ListGroup.Item
-            className="terminal-ubuntu terminal-line">&#62; Duration: <b>{props.duration}</b>
-          </ListGroup.Item>
-        </ListGroup>
-      </Card.Body>
-      <Card.Body>
-        <Card.Text>{props.description}</Card.Text>
-      </Card.Body>
-    </Card>
+    <div className={"px-3 py-5" + " " + bgClassName} onClick={redirectToProj}>
+      <Row className={"gx-1 gy-3"}>
+        <Col xs={12}>
+          <Container>
+            <h1>{props.title}</h1>
+            {props.description}
+          </Container>
+        </Col>
+        <Col xs={12}>
+          {props.imageSource && (
+            <img src={props.imageSource} alt={""} style={{maxWidth: "100%"}}/>
+          )}
+        </Col>
+        <Col xs={6} md={3}>
+          <Container>
+            Company
+            <h6>{props.company}</h6>
+          </Container>
+        </Col>
+        <Col xs={6} md={3}>
+          <Container>
+            Position
+            <h6>{props.position}</h6>
+          </Container>
+        </Col>
+        <Col xs={6} md={3}>
+          <Container>
+            Location
+            <h6>{props.location}</h6>
+          </Container>
+        </Col>
+        <Col xs={6} md={3}>
+          <Container>
+            Duration
+            <h6>{props.duration}</h6>
+          </Container>
+        </Col>
+      </Row>
+    </div>
   );
 }
 
