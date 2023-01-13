@@ -1,4 +1,4 @@
-import ProfileCard from "../components/ProfileCard";
+import BannerCard from "../components/BannerCard";
 import PortfolioCard from "../components/PortfolioCard";
 import {Col} from "react-bootstrap";
 
@@ -10,7 +10,7 @@ function Home() {
   return (
     <>
       <Col xs={12}>
-        <ProfileCard
+        <BannerCard
           imageSource={require("../assets/julian.png").default}
           title="Hi! I'm Julian."
           description="Final-Year M.Eng. Computing (Artificial Intelligence and Machine Learning) Student @ Imperial College London"
@@ -58,7 +58,7 @@ function Home() {
         />
       </Col>
     </>
-  )
+  );
 }
 
 export default Home;
