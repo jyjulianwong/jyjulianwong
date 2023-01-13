@@ -14,7 +14,9 @@ function App() {
     <div className="App">
       <Row className="gx-0 gy-1">
         <Col xs={12}>
-          <FixedAnimatedNavbar/>
+          <FixedAnimatedNavbar
+            imageSource={require("./assets/logo512.png").default}
+          />
         </Col>
         <Col xs={12}>
           <ProfileCard
@@ -69,6 +71,10 @@ function App() {
             jyjulianwong.github.io v{process.env.REACT_APP_VERSION}.
             <br/>
             Authored by Julian Wong in 2022.
+            <br/>
+            <a href="https://www.flaticon.com/free-icons/landing-page" title="landing page icons">
+              Landing page icons created by Freepik - Flaticon.
+            </a>
           </div>
         </Col>
       </Row>
