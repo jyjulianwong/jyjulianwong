@@ -11,7 +11,7 @@ function Home() {
     <>
       <Col xs={12}>
         <BannerCard
-          imageSource={require("../assets/julian.png").default}
+          imageSource={require("../assets/banner.png").default}
           title="Hi! I'm Julian."
           description="Final-Year M.Eng. Computing (Artificial Intelligence and Machine Learning) Student @ Imperial College London"
           darkened
