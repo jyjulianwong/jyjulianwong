@@ -25,7 +25,7 @@ function FixedAnimatedNavbar(props: FixedAnimatedNavbarProps): JSX.Element {
   return (
     <Navbar className="bg-white" expand="sm">
       <Container className="px-3">
-        <Navbar.Brand href="">
+        <Navbar.Brand href="/">
           {props.imageSource && (
             <img
               src={props.imageSource}
