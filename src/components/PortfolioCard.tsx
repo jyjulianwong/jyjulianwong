@@ -35,7 +35,11 @@ function PortfolioCard(props: PortfolioCardProps): JSX.Element {
         </Col>
         <Col xs={12}>
           {props.imageSource && (
-            <img src={props.imageSource} alt={""} style={{maxWidth: "100%"}}/>
+            <img
+              src={props.imageSource}
+              alt={"PortfolioCard.imageSource"}
+              style={{maxWidth: "100%", maxHeight: 480, width: "auto", height: "auto"}}
+            />
           )}
         </Col>
         <Col xs={6} md={3}>
