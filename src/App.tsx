@@ -4,20 +4,20 @@ import FixedAnimatedNavbar from "./components/FixedAnimatedNavbar";
 import Home from "./routes/Home";
 import Top100Cars from "./routes/Top100Cars";
 import {Col, Row} from 'react-bootstrap';
-import {createBrowserRouter, RouterProvider} from 'react-router-dom';
+import {createHashRouter, RouterProvider} from 'react-router-dom';
 
 /**
  * Entry point of web app.
  * @constructor
  */
 function App() {
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
-      path: "/",
+      path: "",
       element: <Home/>,
     },
     {
-      path: "/top100cars",
+      path: "top100cars",
       element: <Top100Cars/>,
     },
   ]);

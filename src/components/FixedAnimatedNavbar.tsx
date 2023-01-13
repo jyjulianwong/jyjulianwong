@@ -42,7 +42,7 @@ function FixedAnimatedNavbar(props: FixedAnimatedNavbarProps): JSX.Element {
         <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
           <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/top100cars">Top 100 Cars</Nav.Link>
+          <Nav.Link href="/#/top100cars">Top 100 Cars</Nav.Link>
         </Nav>
           </Navbar.Collapse>
       </Container>
