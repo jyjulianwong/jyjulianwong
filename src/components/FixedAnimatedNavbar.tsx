@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {Container, Navbar} from "react-bootstrap";
+import {Container, Nav, Navbar} from "react-bootstrap";
 import {RepeatingTimer} from "../models/RepeatingTimer";
 
 interface FixedAnimatedNavbarProps {
@@ -23,9 +23,9 @@ function FixedAnimatedNavbar(props: FixedAnimatedNavbarProps): JSX.Element {
   }, []);
 
   return (
-    <Navbar className="bg-white" expand="lg">
-      <Container className={"px-3"}>
-        <Navbar.Brand href="#">
+    <Navbar className="bg-white" expand="sm">
+      <Container className="px-3">
+        <Navbar.Brand href="">
           {props.imageSource && (
             <img
               src={props.imageSource}
@@ -35,8 +35,16 @@ function FixedAnimatedNavbar(props: FixedAnimatedNavbarProps): JSX.Element {
               className={"d-inline-block align-center"}
             />
           )}{" "}
-          {"> " + text + ((tick % 2 == 0) ? "_" : "")}
+          <p style={{display: "inline"}}>{"> " + text}</p>
+          <p style={{display: "inline", visibility: (tick % 2 == 0) ? "hidden" : "inherit"}}>_</p>
         </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="me-auto">
+          <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Link href="/top100cars">Top 100 Cars</Nav.Link>
+        </Nav>
+          </Navbar.Collapse>
       </Container>
     </Navbar>
   );
