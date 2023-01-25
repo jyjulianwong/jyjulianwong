@@ -13,7 +13,7 @@ function Home() {
         <BannerCard
           imageSource={require("../assets/banner.png").default}
           title="Hi! I'm Julian."
-          description="Final-Year M.Eng. Computing (Artificial Intelligence and Machine Learning) Student @ Imperial College London"
+          description="Final-Year MEng Computing (AI and ML) Student @ Imperial College London"
           darkened
         />
       </Col>
