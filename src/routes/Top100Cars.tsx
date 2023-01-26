@@ -9,7 +9,7 @@ import {Col} from "react-bootstrap";
 function Top100Cars() {
   let cars = new Map<string, string>([
     ["Chevrolet Corvette C6", require("../assets/chevroletcorvettec6.jpeg").default],
-    ["Honda NSX (NA1)", require("../assets/hondansxna1.jpeg").default],
+    ["Honda NSX Type-R (NA1)", require("../assets/hondansxtyperna1.jpeg").default],
     ["Jaguar E-Type (Series I)", require("../assets/jaguaretypeseriesi.jpeg").default],
     ["Lotus Elise (Series 3)", require("../assets/lotuseliseseries3.jpeg").default],
     ["Toyota Corolla Levin (AE86)", require("../assets/toyotacorollalevinae86.jpeg").default],
@@ -17,7 +17,7 @@ function Top100Cars() {
     ["Land Rover Range Rover (L322)", require("../assets/landroverrangeroverl322.jpeg").default],
     ["Mazda MX-5 (NA)", require("../assets/mazdamx5na.jpeg").default],
     ["Subaru Impreza 22B STI (GC)", require("../assets/subaruimpreza22bstigc.jpeg").default],
-    ["Mitsubishi Lancer Evo V (CP9A)", require("../assets/mitsubishilancerevovcp9a.jpeg").default],
+    ["Mitsubishi Lancer Evo. V (CP9A)", require("../assets/mitsubishilancerevovcp9a.jpeg").default],
     ["Honda Integra Type-R (DB8)", require("../assets/hondaintegratyperdb8.jpeg").default],
     ["Mini Hatch (R50)", require("../assets/minihatchr50.jpeg").default],
     ["Chevrolet Corvette C2", require("../assets/chevroletcorvettec2.jpeg").default],
@@ -30,7 +30,7 @@ function Top100Cars() {
     ["Saab 99 Turbo", require("../assets/saab99turbo.jpeg").default],
     ["Mercedes-Benz CL-Class (C210)", require("../assets/mercedesbenzclclassc216.jpeg").default],
     ["Mercedes-Benz 500E", require("../assets/mercedesbenz500e.jpeg").default],
-    ["Volvo S80 (2nd generation)", require("../assets/volvos802ndgeneration.jpeg").default],
+    ["Volvo S80 II", require("../assets/volvos80ii.jpeg").default],
     ["Dodge Challenger SRT-8 (LC)", require("../assets/dodgechallengersrt8lc.jpeg").default],
     ["Chevrolet Corvette C8", require("../assets/chevroletcorvettec8.jpeg").default],
     ["Rolls-Royce Phantom VII", require("../assets/rollsroycephantomvii.jpeg").default],
@@ -47,7 +47,7 @@ function Top100Cars() {
     ["Ferrari 308 GTS", require("../assets/ferrari308gts.jpeg").default],
     ["Volkswagen Golf GTI (Mk 6)", require("../assets/volkswagengolfgtimk6.jpeg").default],
     ["Aston Martin DB7", require("../assets/astonmartindb7.jpeg").default],
-    ["Lamborghini Countach", require("../assets/lamborghinicountach.jpeg").default],
+    ["Lamborghini Countach LP400", require("../assets/lamborghinicountachlp400.jpeg").default],
     ["Ford Model-T", require("../assets/fordmodelt.jpeg").default],
     ["Lexus ES (XV30)", require("../assets/lexusesxv30.jpeg").default],
   ]);
