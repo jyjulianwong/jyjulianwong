@@ -1,5 +1,5 @@
 import Top100CarCard from "../components/Top100CarCard";
-import {Col} from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
 
 /**
  * Top 100 Cars.
@@ -55,21 +55,27 @@ function Top100Cars() {
     .from(cars.entries())
     .slice(0, Math.min(cars.size, 100))
     .map((entry: [string, string], index: number) => {
-      const [key, val] = entry;
-      return (
-        <Top100CarCard
-          key={key}
-          imageSource={val}
-          title={String(index + 1).padStart(3, "0") + ": " + key}
-        />
-      );
-    }
-  );
+        const [key, val] = entry;
+        return (
+          <Col key={key} xs={12} md={6}>
+            <Top100CarCard
+              key={key}
+              imageSource={val}
+              title={String(index + 1).padStart(3, "0") + ": " + key}
+            />
+          </Col>
+        );
+      }
+    );
 
   return (
     <>
       <Col xs={12}>
-        {carCards}
+        <Container className={"App"} fluid>
+          <Row className={"g-0"}>
+            {carCards}
+          </Row>
+        </Container>
       </Col>
       <Col xs={12}>
         <div className={"px-3 py-5 bg-white"}>
