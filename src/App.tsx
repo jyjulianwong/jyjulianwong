@@ -27,7 +27,7 @@ function App() {
       <Row className="gx-0 gy-1">
         <Col xs={12}>
           <FixedAnimatedNavbar
-            imageSource={require("./assets/logo512.png").default}
+            imageSource={require("./assets/logo512.png")}
           />
         </Col>
         <RouterProvider router={router}/>
