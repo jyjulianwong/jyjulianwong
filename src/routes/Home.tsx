@@ -11,7 +11,7 @@ function Home() {
     <>
       <Col xs={12}>
         <BannerCard
-          imageSource={require("../assets/banner.png").default}
+          imageSource={require("../assets/banner.png")}
           title="Hi! I'm Julian."
           description="Final-Year MEng Computing (AI and ML) Student @ Imperial College London"
           darkened
@@ -19,7 +19,7 @@ function Home() {
       </Col>
       <Col xs={12}>
         <PortfolioCard
-          imageSource={require("../assets/amphere.png").default}
+          imageSource={require("../assets/amphere.png")}
           title="Amphere Web App"
           company="Amphere Ltd"
           position="Full-Stack Web Developer"
@@ -32,7 +32,7 @@ function Home() {
       </Col>
       <Col xs={12}>
         <PortfolioCard
-          imageSource={require("../assets/catapultsports.png").default}
+          imageSource={require("../assets/catapultsports.png")}
           title="RaceWatch"
           company="Catapult Sports"
           position="Software Engineer Intern"
@@ -46,7 +46,7 @@ function Home() {
       </Col>
       <Col xs={12}>
         <PortfolioCard
-          imageSource={require("../assets/biiah.png").default}
+          imageSource={require("../assets/biiah.png")}
           title="Biiah for iOS"
           company="Biiah"
           position="iOS Developer"
