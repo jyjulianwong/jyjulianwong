@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.503ee15b.css",
-    "main.js": "/static/js/main.b2add8b6.js",
+    "main.js": "/static/js/main.8de69fea.js",
     "static/js/787.fd2bb773.chunk.js": "/static/js/787.fd2bb773.chunk.js",
     "static/media/banner.png": "/static/media/banner.4e55d431822f9206cf23.png",
     "static/media/toyotalandcruiserurj200.jpeg": "/static/media/toyotalandcruiserurj200.eecc65073cd72761fb5c.jpeg",
@@ -52,11 +52,11 @@
     "static/media/logo512.png": "/static/media/logo512.20b09aa521956cdc7fcf.png",
     "index.html": "/index.html",
     "main.503ee15b.css.map": "/static/css/main.503ee15b.css.map",
-    "main.b2add8b6.js.map": "/static/js/main.b2add8b6.js.map",
+    "main.8de69fea.js.map": "/static/js/main.8de69fea.js.map",
     "787.fd2bb773.chunk.js.map": "/static/js/787.fd2bb773.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.503ee15b.css",
-    "static/js/main.b2add8b6.js"
+    "static/js/main.8de69fea.js"
   ]
 }
