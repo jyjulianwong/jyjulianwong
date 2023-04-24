@@ -137,11 +137,8 @@ function Top100Cars() {
       </Col>
       <Col xs={12}>
         <div className={"px-3 py-5 bg-white"}>
-          <h3>More entries coming soon.</h3>
-          <p>
             This is a list of my personal top 100 favourite cars ever made,
             determined on the basis of design, public reception, historical significance, and performance.
-          </p>
         </div>
       </Col>
     </>
