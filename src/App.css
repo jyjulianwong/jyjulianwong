@@ -39,7 +39,7 @@ mark {
   transition: height 0.5s ease;
 }
 
-.card-expandable:hover {
-  height: 400px;
-  transition: height 0.5s ease;
-}
+/*.card-expandable:hover {*/
+/*  height: 400px;*/
+/*  transition: height 0.5s ease;*/
+/*}*/

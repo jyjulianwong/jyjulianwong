@@ -1,5 +1,6 @@
 import Top100CarCard from "../components/Top100CarCard";
-import {Col, Container, Row} from "react-bootstrap";
+import {useState} from "react";
+import {Col, Container, Modal, Row} from "react-bootstrap";
 
 /**
  * Top 100 Cars.
@@ -115,7 +116,7 @@ function Top100Cars() {
     .map((entry: [string, string], index: number) => {
         const [key, val] = entry;
         return (
-          <Col key={key} xs={12} md={6}>
+          <Col key={key} xs={12} md={6} onClick={() => expandCard(key, val)}>
             <Top100CarCard
               key={key}
               imageSource={val}
@@ -125,6 +126,18 @@ function Top100Cars() {
         );
       }
     );
+
+  const [show, setShow] = useState(false);
+  const [name, setName] = useState("");
+  const [imageSource, setImageSource] = useState("");
+
+  const handleHide = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const expandCard = (name: string, imageSource: string) => {
+    setName(name);
+    setImageSource(imageSource);
+    handleShow();
+  };
 
   return (
     <>
@@ -137,10 +150,32 @@ function Top100Cars() {
       </Col>
       <Col xs={12}>
         <div className={"px-3 py-5 bg-white"}>
-            This is a list of my personal top 100 favourite cars ever made,
-            determined on the basis of design, public reception, historical significance, and performance.
+          This is a list of my personal top 100 favourite cars ever made,
+          determined on the basis of design, public reception, historical
+          significance, and performance.
         </div>
       </Col>
+      <Modal
+        size="xl"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+        show={show}
+        onHide={handleHide}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>{name}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <img
+            style={{
+              width: "100%",
+              borderRadius: "5px"
+            }}
+            src={imageSource}
+            alt={name}
+          />
+        </Modal.Body>
+      </Modal>
     </>
   );
 }
