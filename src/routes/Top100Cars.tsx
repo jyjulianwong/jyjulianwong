@@ -1,6 +1,6 @@
 import Top100CarCard from "../components/Top100CarCard";
 import {useState} from "react";
-import {Col, Container, Modal, Row} from "react-bootstrap";
+import {Col, Modal, Row} from "react-bootstrap";
 
 /**
  * Top 100 Cars.
@@ -142,11 +142,9 @@ function Top100Cars() {
   return (
     <>
       <Col xs={12}>
-        <Container className={"App"} fluid>
           <Row className={"g-0"}>
             {carCards}
           </Row>
-        </Container>
       </Col>
       <Col xs={12}>
         <div className={"px-3 py-5 bg-white"}>
