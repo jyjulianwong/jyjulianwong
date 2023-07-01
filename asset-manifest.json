@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.a5e77c55.css",
-    "main.js": "/static/js/main.b1f27aaa.js",
+    "main.css": "/static/css/main.c0cb498e.css",
+    "main.js": "/static/js/main.49db9170.js",
     "static/js/787.fd2bb773.chunk.js": "/static/js/787.fd2bb773.chunk.js",
     "static/media/banner.png": "/static/media/banner.4e55d431822f9206cf23.png",
     "static/media/toyotalandcruiserurj200.jpeg": "/static/media/toyotalandcruiserurj200.118aac0f00bf51cee6c3.jpeg",
@@ -36,7 +36,6 @@
     "static/media/minihatchr50.jpeg": "/static/media/minihatchr50.d765dbb587e7a677cbc8.jpeg",
     "static/media/polestar2.jpeg": "/static/media/polestar2.7b3e550036af04dc02e2.jpeg",
     "static/media/landroverrangeroverl322.jpeg": "/static/media/landroverrangeroverl322.c0763e222af4a2c20d4c.jpeg",
-    "static/media/astonmartindb9.jpeg": "/static/media/astonmartindb9.2bc26402b60b3e86f784.jpeg",
     "static/media/subarubrzzc6.jpeg": "/static/media/subarubrzzc6.dea888da55de7c616753.jpeg",
     "static/media/jaguarxjx351.jpeg": "/static/media/jaguarxjx351.34a1a6b3ccc70f16b8fb.jpeg",
     "static/media/ferrari308gts.jpeg": "/static/media/ferrari308gts.fb999835d07ad52710a7.jpeg",
@@ -72,7 +71,6 @@
     "static/media/lexuslfa.jpeg": "/static/media/lexuslfa.a24e32cefe33b336aead.jpeg",
     "static/media/hondansxtyperna1.jpeg": "/static/media/hondansxtyperna1.54f86bc9eb2e095bffd9.jpeg",
     "static/media/mitsubishilancerevovcp9a.jpeg": "/static/media/mitsubishilancerevovcp9a.1a785e24c1e3583971f7.jpeg",
-    "static/media/toyotapriusxw20.jpeg": "/static/media/toyotapriusxw20.8b83c0d60d6ca0d91ec5.jpeg",
     "static/media/mercedesbenzclclassc216.jpeg": "/static/media/mercedesbenzclclassc216.6c3d853e72d7bd987393.jpeg",
     "static/media/mercedesbenz190e2516evoiiw201.jpeg": "/static/media/mercedesbenz190e2516evoiiw201.d658b761f57a72694fcc.jpeg",
     "static/media/volvoex90.jpeg": "/static/media/volvoex90.a58e142bb9a92056d852.jpeg",
@@ -83,8 +81,8 @@
     "static/media/lotuseliseseries3.jpeg": "/static/media/lotuseliseseries3.6b7181dacc33abeae9e3.jpeg",
     "static/media/lexuslsxf40.jpeg": "/static/media/lexuslsxf40.57f48a6b4cdf9ec90388.jpeg",
     "static/media/lexusesxv30.jpeg": "/static/media/lexusesxv30.5aea1a927780ce923036.jpeg",
-    "static/media/cadillacctsgmx320.jpeg": "/static/media/cadillacctsgmx320.7b4fb05468bfd3f488cd.jpeg",
     "static/media/ferrarienzo.jpeg": "/static/media/ferrarienzo.1a58b2e32851d12c3fe6.jpeg",
+    "static/media/astonmartindbsv12.jpeg": "/static/media/astonmartindbsv12.933b394ecfefb729daed.jpeg",
     "static/media/mclarenmp412c.jpeg": "/static/media/mclarenmp412c.a9a6436e7d07072a4e66.jpeg",
     "static/media/landroverdefenderl316.jpeg": "/static/media/landroverdefenderl316.9450842095ce7d1cb364.jpeg",
     "static/media/nissanskyline25gtr34.jpeg": "/static/media/nissanskyline25gtr34.e69476053c523e1c2bfc.jpeg",
@@ -99,22 +97,25 @@
     "static/media/lanciastratoshftipo829.jpeg": "/static/media/lanciastratoshftipo829.01f04c1144260e493e0b.jpeg",
     "static/media/mercedesamgone.jpeg": "/static/media/mercedesamgone.1f52618952a233da73bc.jpeg",
     "static/media/lamborghinimiurap400sv.jpeg": "/static/media/lamborghinimiurap400sv.4f62cadc22aa06c5cc3b.jpeg",
+    "static/media/porsche356speedster.jpeg": "/static/media/porsche356speedster.fa224749759aafe6b06a.jpeg",
     "static/media/bmw1seriesmcoupee82.jpeg": "/static/media/bmw1seriesmcoupee82.7b0e393415a6a378b8e3.jpeg",
     "static/media/hondaintegratyperdb8.jpeg": "/static/media/hondaintegratyperdb8.71146a1290dc5e4ed197.jpeg",
     "static/media/bmwm3e30.jpeg": "/static/media/bmwm3e30.65127bcaf2034a1c9ab7.jpeg",
     "static/media/amphere.png": "/static/media/amphere.97f7b9ca5c19cfea019c.png",
     "static/media/toyotamr2aw10.jpeg": "/static/media/toyotamr2aw10.7215f591cff24b8a2098.jpeg",
+    "static/media/polarrec.png": "/static/media/polarrec.2092e8f088b30708ec02.png",
     "static/media/hondas2000ap1.jpeg": "/static/media/hondas2000ap1.ea19dde6be34dc8c3457.jpeg",
     "static/media/chevroletcorvettec2.jpeg": "/static/media/chevroletcorvettec2.036a3df378edf7e3189e.jpeg",
     "static/media/biiah.png": "/static/media/biiah.e9c4f2abfb62d2034ddf.png",
+    "static/media/lanciafulviaseries3.jpeg": "/static/media/lanciafulviaseries3.73c121d587389afaab07.jpeg",
     "static/media/logo512.png": "/static/media/logo512.20b09aa521956cdc7fcf.png",
     "index.html": "/index.html",
-    "main.a5e77c55.css.map": "/static/css/main.a5e77c55.css.map",
-    "main.b1f27aaa.js.map": "/static/js/main.b1f27aaa.js.map",
+    "main.c0cb498e.css.map": "/static/css/main.c0cb498e.css.map",
+    "main.49db9170.js.map": "/static/js/main.49db9170.js.map",
     "787.fd2bb773.chunk.js.map": "/static/js/787.fd2bb773.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a5e77c55.css",
-    "static/js/main.b1f27aaa.js"
+    "static/css/main.c0cb498e.css",
+    "static/js/main.49db9170.js"
   ]
 }
