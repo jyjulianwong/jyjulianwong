@@ -19,12 +19,13 @@ function Home() {
       </Col>
       <Col xs={12}>
         <PortfolioCard
+          imageSource={require("../assets/polarrec.png")}
           title="PolarRec"
           company="Imperial College London"
           position="Master's Individual Project"
           location="London, England, UK"
           duration="Jan 2023 - Jun 2023"
-          description="An ML-powered academic resource recommendation engine, tailor-made for the Zotero research assistant platform. Coming soon."
+          description="An ML-powered academic resource recommendation engine, tailor-made for the Zotero research assistant platform."
           redirect="https://github.com/jyjulianwong/PolarRec"
           redirectText="See the repository"
           darkened
