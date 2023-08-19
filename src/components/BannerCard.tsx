@@ -14,6 +14,15 @@ interface BannerCardProps {
  */
 function BannerCard(props: BannerCardProps): JSX.Element {
   const bgClassName = props.imageSource ? "bg-image" : props.darkened ? "bg-black" : "bg-white";
+  const description = Array
+    .from(props.description.split("\\n"))
+    .filter((descLine: string) => descLine !== "")
+    .map((descLine: string, index: number) => {
+        return (
+          <h6 key={index}><mark>{descLine}</mark></h6>
+        );
+      }
+    );
   return (
     <div
       className={"d-flex justify-content-center align-items-center" + " " + bgClassName}
@@ -27,7 +36,7 @@ function BannerCard(props: BannerCardProps): JSX.Element {
     >
       <Container className={"p-3 text-start"}>
         <h1><mark>{props.title}</mark></h1>
-        <h6><mark>{props.description}</mark></h6>
+        {description}
       </Container>
     </div>
   );

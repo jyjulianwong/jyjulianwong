@@ -13,7 +13,7 @@ function Home() {
         <BannerCard
           imageSource={require("../assets/banner.png")}
           title="Hi! I'm Julian."
-          description="Final-Year MEng Computing (AI and ML) Student @ Imperial College London"
+          description="Data Science Graduate @ Lloyds Banking Group\nMEng (Hons) Computing (AI and ML), Imperial College London"
           darkened
         />
       </Col>
@@ -52,7 +52,7 @@ function Home() {
           position="Software Engineer Intern"
           location="London, England, UK"
           duration="Apr 2022 - Sep 2022"
-          description="Developed performance analysis software for elite motorsport teams across 10+ series and championships, enabling teams to visualise trends, make in-race strategic decisions and review driver performance."
+          description="Developed performance analysis software for elite motorsport teams for over 10 series and championships, enabling teams to visualise trends, make in-race strategic decisions and review driver performance."
           redirect="https://sbgsportssoftware.com/product/racewatch-for-teams"
           redirectText="Learn more"
           darkened
@@ -61,7 +61,7 @@ function Home() {
       <Col xs={12}>
         <PortfolioCard
           imageSource={require("../assets/biiah.png")}
-          title="Biiah for iOS"
+          title="Biiah iOS App"
           company="Biiah"
           position="iOS Developer"
           location="London, England, UK"
