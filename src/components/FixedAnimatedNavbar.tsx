@@ -7,7 +7,7 @@ interface FixedAnimatedNavbarProps {
 }
 
 function FixedAnimatedNavbar(props: FixedAnimatedNavbarProps): JSX.Element {
-  const text = "jyjulianwong";
+  const text = "J. Y. Julian Wong";
   const tickInterval = 750;
 
   const [tick, setTick] = useState(0);
