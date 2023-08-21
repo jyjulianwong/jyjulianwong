@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/static/css/main.16db1e39.css",
-    "main.js": "/static/js/main.1b3541df.js",
+    "main.js": "/static/js/main.c8c28dc8.js",
     "static/js/787.fd2bb773.chunk.js": "/static/js/787.fd2bb773.chunk.js",
-    "static/media/banner.png": "/static/media/banner.4e55d431822f9206cf23.png",
     "static/media/toyotalandcruiserurj200.jpeg": "/static/media/toyotalandcruiserurj200.118aac0f00bf51cee6c3.jpeg",
     "static/media/ferrari458italia.jpeg": "/static/media/ferrari458italia.9995d5f23350ecd4868f.jpeg",
     "static/media/lexuslcurz100.jpeg": "/static/media/lexuslcurz100.e9de2b2c50cd9b402e7c.jpeg",
     "static/media/jaguaretypeseriesi.jpeg": "/static/media/jaguaretypeseriesi.cda29efadbee04bc20d5.jpeg",
+    "static/media/banner.jpeg": "/static/media/banner.80a0fc57db6c2da15338.jpeg",
     "static/media/austinminimarki.jpeg": "/static/media/austinminimarki.cbdb044484bd87853000.jpeg",
     "static/media/jaguarxfx250.jpeg": "/static/media/jaguarxfx250.5e5ac6824253f282921c.jpeg",
     "static/media/mercedesbenz500ew124.jpeg": "/static/media/mercedesbenz500ew124.b473e7407b196eb4db77.jpeg",
@@ -111,11 +111,11 @@
     "static/media/logo512.png": "/static/media/logo512.20b09aa521956cdc7fcf.png",
     "index.html": "/index.html",
     "main.16db1e39.css.map": "/static/css/main.16db1e39.css.map",
-    "main.1b3541df.js.map": "/static/js/main.1b3541df.js.map",
+    "main.c8c28dc8.js.map": "/static/js/main.c8c28dc8.js.map",
     "787.fd2bb773.chunk.js.map": "/static/js/787.fd2bb773.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.16db1e39.css",
-    "static/js/main.1b3541df.js"
+    "static/js/main.c8c28dc8.js"
   ]
 }
