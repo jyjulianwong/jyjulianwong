@@ -1,4 +1,5 @@
 import BannerCard from "../components/BannerCard";
+import ContactCard from "../components/ContactCard";
 import PortfolioCard from "../components/PortfolioCard";
 import {Col} from "react-bootstrap";
 
@@ -69,6 +70,14 @@ function Home() {
           description="Developed the Biiah (formerly Tchzant) iOS app, enabling people of all backgrounds to learn singing in a gamified format."
           redirect="https://biiah.com"
           redirectText="Learn more"
+        />
+      </Col>
+      <Col xs={12}>
+        <ContactCard
+          title={"Contact Me"}
+          email={"julianwong2000@gmail.com"}
+          linkedin={"linkedin.com/in/jyjulianwong"}
+          github={"github.com/jyjulianwong"}
         />
       </Col>
     </>
