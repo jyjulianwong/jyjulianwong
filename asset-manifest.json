@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.16db1e39.css",
-    "main.js": "/static/js/main.c8c28dc8.js",
+    "main.js": "/static/js/main.e1900224.js",
     "static/js/787.fd2bb773.chunk.js": "/static/js/787.fd2bb773.chunk.js",
     "static/media/toyotalandcruiserurj200.jpeg": "/static/media/toyotalandcruiserurj200.118aac0f00bf51cee6c3.jpeg",
     "static/media/ferrari458italia.jpeg": "/static/media/ferrari458italia.9995d5f23350ecd4868f.jpeg",
@@ -109,13 +109,15 @@
     "static/media/biiah.png": "/static/media/biiah.e9c4f2abfb62d2034ddf.png",
     "static/media/lanciafulviaseries3.jpeg": "/static/media/lanciafulviaseries3.73c121d587389afaab07.jpeg",
     "static/media/logo512.png": "/static/media/logo512.20b09aa521956cdc7fcf.png",
+    "static/media/github.png": "/static/media/github.f11021803f68852df283.png",
+    "static/media/email.png": "/static/media/email.51b08bcbb5af7a861c31.png",
     "index.html": "/index.html",
     "main.16db1e39.css.map": "/static/css/main.16db1e39.css.map",
-    "main.c8c28dc8.js.map": "/static/js/main.c8c28dc8.js.map",
+    "main.e1900224.js.map": "/static/js/main.e1900224.js.map",
     "787.fd2bb773.chunk.js.map": "/static/js/787.fd2bb773.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.16db1e39.css",
-    "static/js/main.c8c28dc8.js"
+    "static/js/main.e1900224.js"
   ]
 }
