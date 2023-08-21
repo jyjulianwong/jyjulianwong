@@ -37,7 +37,11 @@ function App() {
             <br/>
             Authored by Julian Wong in 2023.
             <br/>
-            <a href="https://www.flaticon.com/free-icons/landing-page" title="landing page icons">
+            <a
+              href="https://www.flaticon.com/free-icons/landing-page"
+              title="landing page icons"
+              style={{textDecoration: "none"}}
+            >
               Landing page icons created by Freepik - Flaticon.
             </a>
           </div>
