@@ -2,7 +2,7 @@
   "name": "jyjulianwong",
   "version": "0.9.0",
   "private": false,
-  "homepage": "https://jyjulianwong.github.io/jyjulianwong",
+  "homepage": "https://jyjulianwong.github.io/jyjulianwong/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
