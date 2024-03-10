@@ -33,9 +33,9 @@ function App() {
         <RouterProvider router={router}/>
         <Col xs={12}>
           <div className={"mt-5 mb-3"}>
-            jyjulianwong.github.io v{process.env.REACT_APP_VERSION}.
+            jyjulianwong v{process.env.REACT_APP_VERSION}.
             <br/>
-            Authored by Julian Wong in 2023.
+            Authored by Julian Wong in 2024.
             <br/>
             <a
               href="https://www.flaticon.com/free-icons/landing-page"
