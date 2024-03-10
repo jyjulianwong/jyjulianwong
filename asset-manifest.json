@@ -1,13 +1,12 @@
 {
   "files": {
-    "main.css": "/jyjulianwong/static/css/main.dfafeb00.css",
-    "main.js": "/jyjulianwong/static/js/main.0a8d7f92.js",
+    "main.css": "/jyjulianwong/static/css/main.5b9c9ef3.css",
+    "main.js": "/jyjulianwong/static/js/main.26b8693a.js",
     "static/js/453.982c16ff.chunk.js": "/jyjulianwong/static/js/453.982c16ff.chunk.js",
     "static/media/toyotalandcruiserurj200.jpeg": "/jyjulianwong/static/media/toyotalandcruiserurj200.118aac0f00bf51cee6c3.jpeg",
     "static/media/ferrari458italia.jpeg": "/jyjulianwong/static/media/ferrari458italia.9995d5f23350ecd4868f.jpeg",
     "static/media/lexuslcurz100.jpeg": "/jyjulianwong/static/media/lexuslcurz100.e9de2b2c50cd9b402e7c.jpeg",
     "static/media/jaguaretypeseriesi.jpeg": "/jyjulianwong/static/media/jaguaretypeseriesi.cda29efadbee04bc20d5.jpeg",
-    "static/media/banner.jpeg": "/jyjulianwong/static/media/banner.80a0fc57db6c2da15338.jpeg",
     "static/media/austinminimarki.jpeg": "/jyjulianwong/static/media/austinminimarki.cbdb044484bd87853000.jpeg",
     "static/media/jaguarxfx250.jpeg": "/jyjulianwong/static/media/jaguarxfx250.5e5ac6824253f282921c.jpeg",
     "static/media/mercedesbenz500ew124.jpeg": "/jyjulianwong/static/media/mercedesbenz500ew124.b473e7407b196eb4db77.jpeg",
@@ -112,12 +111,12 @@
     "static/media/github.png": "/jyjulianwong/static/media/github.f11021803f68852df283.png",
     "static/media/email.png": "/jyjulianwong/static/media/email.51b08bcbb5af7a861c31.png",
     "index.html": "/jyjulianwong/index.html",
-    "main.dfafeb00.css.map": "/jyjulianwong/static/css/main.dfafeb00.css.map",
-    "main.0a8d7f92.js.map": "/jyjulianwong/static/js/main.0a8d7f92.js.map",
+    "main.5b9c9ef3.css.map": "/jyjulianwong/static/css/main.5b9c9ef3.css.map",
+    "main.26b8693a.js.map": "/jyjulianwong/static/js/main.26b8693a.js.map",
     "453.982c16ff.chunk.js.map": "/jyjulianwong/static/js/453.982c16ff.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dfafeb00.css",
-    "static/js/main.0a8d7f92.js"
+    "static/css/main.5b9c9ef3.css",
+    "static/js/main.26b8693a.js"
   ]
 }
