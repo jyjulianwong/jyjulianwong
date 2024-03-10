@@ -1,9 +1,9 @@
-import {Container} from 'react-bootstrap';
+import {Badge, Container, Stack} from 'react-bootstrap';
 
 interface BannerCardProps {
   imageSource?: string;
   title: string;
-  description: string;
+  labels: string[];
   darkened?: boolean;
 }
 
@@ -14,12 +14,19 @@ interface BannerCardProps {
  */
 function BannerCard(props: BannerCardProps): JSX.Element {
   const bgClassName = props.imageSource ? "bg-image" : props.darkened ? "bg-black" : "bg-white";
-  const description = Array
-    .from(props.description.split("\\n"))
-    .filter((descLine: string) => descLine !== "")
-    .map((descLine: string, index: number) => {
+  const labels = Array
+    .from(props.labels)
+    .filter((label: string) => label !== "")
+    .map((label: string, index: number) => {
         return (
-          <h6 key={index}><mark>{descLine}</mark></h6>
+          <Badge
+            key={index}
+            pill
+            bg={props.darkened ? "light" : "dark"}
+            text={props.darkened ? "dark" : "light"}
+          >
+            {label}
+          </Badge>
         );
       }
     );
@@ -34,9 +41,15 @@ function BannerCard(props: BannerCardProps): JSX.Element {
         backgroundPosition: "center"
       }}
     >
-      <Container className={"p-3 text-start"}>
-        <h1><mark>{props.title}</mark></h1>
-        {description}
+      <Container className={"p-3"}>
+        <h1><b>{props.title}</b></h1>
+        <Stack
+          className={"d-flex flex-wrap justify-content-center align-items-center"}
+          direction={"horizontal"}
+          gap={2}
+        >
+          {labels}
+        </Stack>
       </Container>
     </div>
   );

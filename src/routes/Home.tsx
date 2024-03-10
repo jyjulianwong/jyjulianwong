@@ -12,10 +12,15 @@ function Home() {
     <>
       <Col xs={12}>
         <BannerCard
-          imageSource={require("../assets/banner.jpeg")}
           title="Hi! I'm Julian."
-          description="Data Science Graduate @ Lloyds Banking Group\nMEng (Hons) Computing (AI and ML), Imperial College London"
-          darkened
+          labels={[
+            "Natural language processing",
+            "Generative AI",
+            "Machine learning",
+            "Data science",
+            "Software engineering",
+            "Cloud computing",
+          ]}
         />
       </Col>
       <Col xs={12}>
