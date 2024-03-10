@@ -32,8 +32,10 @@ function ContactCard(props: ContactCardProps): JSX.Element {
               width={30}
               height={30}
               className={"d-inline-block align-center"}
+              style={{marginBottom: 10}}
             />
           )}
+          <br/>
           <p><a href={"mailto:" + props.email} style={{textDecoration: "none"}}>{props.email}</a></p>
         </Col>
         <Col xs={12} sm={6} md={4}>
@@ -44,8 +46,10 @@ function ContactCard(props: ContactCardProps): JSX.Element {
               width={30}
               height={30}
               className={"d-inline-block align-center"}
+              style={{marginBottom: 10}}
             />
           )}
+          <br/>
           <p><a href={"https://" + props.linkedin} style={{textDecoration: "none"}}>{props.linkedin}</a></p>
         </Col>
         <Col xs={12} sm={6} md={4}>
@@ -56,8 +60,10 @@ function ContactCard(props: ContactCardProps): JSX.Element {
               width={30}
               height={30}
               className={"d-inline-block align-center"}
+              style={{marginBottom: 10}}
             />
           )}
+          <br/>
           <p><a href={"https://" + props.github} style={{textDecoration: "none"}}>{props.github}</a></p>
         </Col>
       </Row>
