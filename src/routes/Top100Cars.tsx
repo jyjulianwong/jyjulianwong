@@ -116,7 +116,7 @@ function Top100Cars() {
     .map((entry: [string, string], index: number) => {
         const [key, val] = entry;
         return (
-          <Col key={key} xs={12} md={6} onClick={() => expandCard(key, val)}>
+          <Col key={key} xs={12} onClick={() => expandCard(key, val)}>
             <Top100CarCard
               key={key}
               imageSource={val}
@@ -142,9 +142,9 @@ function Top100Cars() {
   return (
     <>
       <Col xs={12}>
-          <Row className={"g-0"}>
-            {carCards}
-          </Row>
+        <Row className={"g-0"}>
+          {carCards}
+        </Row>
       </Col>
       <Col xs={12}>
         <div className={"px-3 py-5 bg-white"}>
