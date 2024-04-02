@@ -2,6 +2,7 @@ import {Col, Container, Row} from "react-bootstrap";
 
 interface Top100CarCardProps {
   imageSource?: string;
+  position: string;
   title: string;
 }
 
@@ -15,7 +16,7 @@ function Top100CarCard(props: Top100CarCardProps): JSX.Element {
     <Row className={"g-0"}>
       <Col xs={12} md={4} className={"d-flex align-items-center bg-black"}>
         <Container className={"p-3 text-start"}>
-          <h2>{props.title}</h2>
+          <h2><b style={{fontFamily: "monospace"}}>{props.position}</b>: {props.title}</h2>
         </Container>
       </Col>
       <Col xs={12} md={8}>

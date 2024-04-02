@@ -9,18 +9,17 @@ import {Col, Modal, Row} from "react-bootstrap";
 
 function Top100Cars() {
   let cars = new Map<string, string>([
-    ["Jaguar E-Type (Series I)", require("../assets/jaguaretypeseriesi.jpeg")],
-    ["Chevrolet Corvette C2", require("../assets/chevroletcorvettec2.jpeg")],
     ["Porsche 911 Turbo (930)", require("../assets/porsche911turbo930.jpeg")],
     ["Lotus Elise (Series 3)", require("../assets/lotuseliseseries3.jpeg")],
+    ["Jaguar E-Type (Series I)", require("../assets/jaguaretypeseriesi.jpeg")],
+    ["Toyota 2000GT", require("../assets/toyota2000gt.jpeg")],
+    ["Chevrolet Corvette C2", require("../assets/chevroletcorvettec2.jpeg")],
+    ["Saab 99 Turbo", require("../assets/saab99turbo.jpeg")],
     ["Honda NSX Type-R (NA1)", require("../assets/hondansxtyperna1.jpeg")],
     ["Toyota MR2 (AW10)", require("../assets/toyotamr2aw10.jpeg")],
     ["Toyota Corolla Levin (AE86)", require("../assets/toyotacorollalevinae86.jpeg")],
-    ["Saab 99 Turbo", require("../assets/saab99turbo.jpeg")],
-    ["Shelby AC Cobra 427", require("../assets/shelbyaccobra427.jpeg")],
-    ["Toyota 2000GT", require("../assets/toyota2000gt.jpeg")],
     ["Austin Mini (Mark I)", require("../assets/austinminimarki.jpeg")],
-    ["Honda e (ZC7)", require("../assets/hondaezc7.jpeg")],
+    ["Shelby AC Cobra 427", require("../assets/shelbyaccobra427.jpeg")],
     ["Land Rover Range Rover (L322)", require("../assets/landroverrangeroverl322.jpeg")],
     ["Toyota Land Cruiser (URJ200)", require("../assets/toyotalandcruiserurj200.jpeg")],
     ["Land Rover Defender (L316)", require("../assets/landroverdefenderl316.jpeg")],
@@ -28,7 +27,6 @@ function Top100Cars() {
     ["Chevrolet Corvette C6", require("../assets/chevroletcorvettec6.jpeg")],
     ["Lotus Evora", require("../assets/lotusevora.jpeg")],
     ["Aston Martin DB5", require("../assets/astonmartindb5.jpeg")],
-    ["Mercedes-Benz EQS (V297)", require("../assets/mercedesbenzeqsv297.jpeg")],
     ["BMW M1 (E26)", require("../assets/bmwm1e26.jpeg")],
     ["Subaru Impreza 22B STI (GC)", require("../assets/subaruimpreza22bstigc.jpeg")],
     ["Mitsubishi Lancer Evo. V (CP9A)", require("../assets/mitsubishilancerevovcp9a.jpeg")],
@@ -61,13 +59,13 @@ function Top100Cars() {
     ["Rolls-Royce Phantom VII", require("../assets/rollsroycephantomvii.jpeg")],
     ["Cadillac XLR (GMX215)", require("../assets/cadillacxlrgmx215.jpeg")],
     ["Volvo C30", require("../assets/volvoc30.jpeg")],
-    ["Honda Civic Type-R (FL5)", require("../assets/hondacivictyperfl5.jpeg")],
     ["Audi Quattro (B2)", require("../assets/audiquattrob2.jpeg")],
     ["Ferrari 308 GTS", require("../assets/ferrari308gts.jpeg")],
     ["Porsche 911 GT3 (992)", require("../assets/porsche911gt3992.jpeg")],
     ["Pagani Zonda C12", require("../assets/paganizondac12.jpeg")],
-    ["Toyota Mirai (JPD10)", require("../assets/toyotamiraijpd10.jpeg")],
-    ["Tesla Model S Plaid", require("../assets/teslamodelsplaid.jpeg")],
+    ["Honda CX Clarity", require("../assets/hondafcxclarity.jpeg")],
+    ["Honda e (ZC7)", require("../assets/hondaezc7.jpeg")],
+    ["Tesla Model S (2012)", require("../assets/teslamodels2012.jpeg")],
     ["Polestar 2", require("../assets/polestar2.jpeg")],
     ["Nissan Cube (Z11)", require("../assets/nissancubez11.jpeg")],
     ["Dodge Challenger SRT-8 (LC)", require("../assets/dodgechallengersrt8lc.jpeg")],
@@ -75,6 +73,7 @@ function Top100Cars() {
     ["Mazda MX-5 (NA)", require("../assets/mazdamx5na.jpeg")],
     ["Volkswagen Golf GTI (Mk 6)", require("../assets/volkswagengolfgtimk6.jpeg")],
     ["Lancia Fulvia (Series 3)", require("../assets/lanciafulviaseries3.jpeg")],
+    ["Honda Prelude (BA1)", require("../assets/hondapreludeba1.jpeg")],
     ["BMW 02 Series (E10)", require("../assets/bmw02seriese10.jpeg")],
     ["Porsche 356 Speedster", require("../assets/porsche356speedster.jpeg")],
     ["Mercedes-Benz 500 E (W124)", require("../assets/mercedesbenz500ew124.jpeg")],
@@ -83,7 +82,7 @@ function Top100Cars() {
     ["BMW 3.0 CS (E9)", require("../assets/bmw30cse9.jpeg")],
     ["Nissan Fairlady Z (S30)", require("../assets/nissanfairladyzs30.jpeg")],
     ["Alfa Romeo Spider (Series 3)", require("../assets/alfaromeospiderseries3.jpeg")],
-    ["Renault 5 Turbo", require("../assets/renault5turbo.jpeg")],
+    ["Peugeot 205 GTi", require("../assets/peugeot205gti.jpeg")],
     ["Mercedes-Benz SLR McLaren", require("../assets/mercedesbenzslrmclaren.jpeg")],
     ["Saab 9-3 (YS3D)", require("../assets/saab93ys3d.jpeg")],
     ["Saab 9-5 (YS3E)", require("../assets/saab95ys3e.jpeg")],
@@ -98,8 +97,10 @@ function Top100Cars() {
     ["McLaren MP4-12C", require("../assets/mclarenmp412c.jpeg")],
     ["Jaguar XJ (X351)", require("../assets/jaguarxjx351.jpeg")],
     ["Jaguar XF (X250)", require("../assets/jaguarxfx250.jpeg")],
-    ["Toyota Camry (XV20)", require("../assets/toyotacamryxv20.jpeg")],
+    ["Peugeot 405 Mi16", require("../assets/peugeot405mi16.jpeg")],
+    ["Volvo V40 (1995)", require("../assets/volvov401995.jpeg")],
     ["Chrysler 300 (LX)", require("../assets/chrysler300lx.jpeg")],
+    ["Ferrari 412", require("../assets/ferrari412.jpeg")],
     ["Alpine A110 (2017)", require("../assets/alpinea1102017.jpeg")],
     ["Lamborghini Countach LP400", require("../assets/lamborghinicountachlp400.jpeg")],
     ["Lamborghini Aventador LP700-4", require("../assets/lamborghiniaventadorlp7004.jpeg")],
@@ -107,7 +108,6 @@ function Top100Cars() {
     ["Holden Commodore HSV (VE)", require("../assets/holdencommodorehsvve.jpeg")],
     ["Honda S660 (JW5)", require("../assets/hondas660jw5.jpeg")],
     ["Toyota Corolla (E160)", require("../assets/toyotacorollae160.jpeg")],
-    ["Smart Fortwo (W451)", require("../assets/smartfortwow451.jpeg")],
     ["Lexus ES (XV30)", require("../assets/lexusesxv30.jpeg")],
   ]);
   let carCards = Array
@@ -120,7 +120,8 @@ function Top100Cars() {
             <Top100CarCard
               key={key}
               imageSource={val}
-              title={String(index + 1).padStart(3, "0") + ": " + key}
+              position={String(index + 1).padStart(3, "0")}
+              title={key}
             />
           </Col>
         );
