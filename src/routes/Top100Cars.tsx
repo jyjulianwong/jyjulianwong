@@ -9,26 +9,24 @@ import {Col, Modal, Row} from "react-bootstrap";
 
 function Top100Cars() {
   let cars = new Map<string, string>([
-    ["Jaguar E-Type (Series I)", require("../assets/jaguaretypeseriesi.jpeg")],
-    ["Chevrolet Corvette C2", require("../assets/chevroletcorvettec2.jpeg")],
     ["Porsche 911 Turbo (930)", require("../assets/porsche911turbo930.jpeg")],
+    ["Saab 900 Turbo", require("../assets/saab900turbo.jpeg")],
     ["Lotus Elise (Series 3)", require("../assets/lotuseliseseries3.jpeg")],
-    ["Honda NSX Type-R (NA1)", require("../assets/hondansxtyperna1.jpeg")],
-    ["Toyota MR2 (AW10)", require("../assets/toyotamr2aw10.jpeg")],
-    ["Toyota Corolla Levin (AE86)", require("../assets/toyotacorollalevinae86.jpeg")],
-    ["Saab 99 Turbo", require("../assets/saab99turbo.jpeg")],
-    ["Shelby AC Cobra 427", require("../assets/shelbyaccobra427.jpeg")],
+    ["Jaguar E-Type (Series I)", require("../assets/jaguaretypeseriesi.jpeg")],
     ["Toyota 2000GT", require("../assets/toyota2000gt.jpeg")],
+    ["Honda NSX Type-R (NA1)", require("../assets/hondansxtyperna1.jpeg")],
+    ["Chevrolet Corvette C2", require("../assets/chevroletcorvettec2.jpeg")],
     ["Austin Mini (Mark I)", require("../assets/austinminimarki.jpeg")],
-    ["Honda e (ZC7)", require("../assets/hondaezc7.jpeg")],
+    ["Toyota MR2 (AW10)", require("../assets/toyotamr2aw10.jpeg")],
+    ["Shelby AC Cobra 427", require("../assets/shelbyaccobra427.jpeg")],
+    ["Toyota Corolla Levin (AE86)", require("../assets/toyotacorollalevinae86.jpeg")],
     ["Land Rover Range Rover (L322)", require("../assets/landroverrangeroverl322.jpeg")],
-    ["Toyota Land Cruiser (URJ200)", require("../assets/toyotalandcruiserurj200.jpeg")],
+    ["Toyota Land Cruiser (J100)", require("../assets/toyotalandcruiserj100.jpeg")],
     ["Land Rover Defender (L316)", require("../assets/landroverdefenderl316.jpeg")],
     ["Lexus LFA", require("../assets/lexuslfa.jpeg")],
     ["Chevrolet Corvette C6", require("../assets/chevroletcorvettec6.jpeg")],
     ["Lotus Evora", require("../assets/lotusevora.jpeg")],
     ["Aston Martin DB5", require("../assets/astonmartindb5.jpeg")],
-    ["Mercedes-Benz EQS (V297)", require("../assets/mercedesbenzeqsv297.jpeg")],
     ["BMW M1 (E26)", require("../assets/bmwm1e26.jpeg")],
     ["Subaru Impreza 22B STI (GC)", require("../assets/subaruimpreza22bstigc.jpeg")],
     ["Mitsubishi Lancer Evo. V (CP9A)", require("../assets/mitsubishilancerevovcp9a.jpeg")],
@@ -46,6 +44,7 @@ function Top100Cars() {
     ["Lexus LC (URZ100)", require("../assets/lexuslcurz100.jpeg")],
     ["Mercedes-Benz SLS AMG", require("../assets/mercedesbenzslsamg.jpeg")],
     ["Aston Martin DBS V12", require("../assets/astonmartindbsv12.jpeg")],
+    ["Rolls-Royce Phantom Coupe", require("../assets/rollsroycephantomcoupe.jpeg")],
     ["Mercedes-Benz CL-Class (C210)", require("../assets/mercedesbenzclclassc216.jpeg")],
     ["Alfa Romeo Giulia GTAm (Type 952)", require("../assets/alfaromeogiuliagtamtype952.jpeg")],
     ["Nissan GT-R (R35)", require("../assets/nissangtrr35.jpeg")],
@@ -61,13 +60,12 @@ function Top100Cars() {
     ["Rolls-Royce Phantom VII", require("../assets/rollsroycephantomvii.jpeg")],
     ["Cadillac XLR (GMX215)", require("../assets/cadillacxlrgmx215.jpeg")],
     ["Volvo C30", require("../assets/volvoc30.jpeg")],
-    ["Honda Civic Type-R (FL5)", require("../assets/hondacivictyperfl5.jpeg")],
     ["Audi Quattro (B2)", require("../assets/audiquattrob2.jpeg")],
     ["Ferrari 308 GTS", require("../assets/ferrari308gts.jpeg")],
     ["Porsche 911 GT3 (992)", require("../assets/porsche911gt3992.jpeg")],
     ["Pagani Zonda C12", require("../assets/paganizondac12.jpeg")],
-    ["Toyota Mirai (JPD10)", require("../assets/toyotamiraijpd10.jpeg")],
-    ["Tesla Model S Plaid", require("../assets/teslamodelsplaid.jpeg")],
+    ["Honda FCX Clarity", require("../assets/hondafcxclarity.jpeg")],
+    ["Tesla Model S (2012)", require("../assets/teslamodels2012.jpeg")],
     ["Polestar 2", require("../assets/polestar2.jpeg")],
     ["Nissan Cube (Z11)", require("../assets/nissancubez11.jpeg")],
     ["Dodge Challenger SRT-8 (LC)", require("../assets/dodgechallengersrt8lc.jpeg")],
@@ -75,15 +73,15 @@ function Top100Cars() {
     ["Mazda MX-5 (NA)", require("../assets/mazdamx5na.jpeg")],
     ["Volkswagen Golf GTI (Mk 6)", require("../assets/volkswagengolfgtimk6.jpeg")],
     ["Lancia Fulvia (Series 3)", require("../assets/lanciafulviaseries3.jpeg")],
-    ["BMW 02 Series (E10)", require("../assets/bmw02seriese10.jpeg")],
+    ["Honda Prelude (BA1)", require("../assets/hondapreludeba1.jpeg")],
     ["Porsche 356 Speedster", require("../assets/porsche356speedster.jpeg")],
     ["Mercedes-Benz 500 E (W124)", require("../assets/mercedesbenz500ew124.jpeg")],
     ["Mercedes-Benz 190 E 2.5-16 Evo II (W201)", require("../assets/mercedesbenz190e2516evoiiw201.jpeg")],
-    ["BMW M3 (E30)", require("../assets/bmwm3e30.jpeg")],
     ["BMW 3.0 CS (E9)", require("../assets/bmw30cse9.jpeg")],
-    ["Nissan Fairlady Z (S30)", require("../assets/nissanfairladyzs30.jpeg")],
+    ["BMW 02 Series (E10)", require("../assets/bmw02seriese10.jpeg")],
+    ["BMW M3 (E30)", require("../assets/bmwm3e30.jpeg")],
     ["Alfa Romeo Spider (Series 3)", require("../assets/alfaromeospiderseries3.jpeg")],
-    ["Renault 5 Turbo", require("../assets/renault5turbo.jpeg")],
+    ["Peugeot 205 GTi", require("../assets/peugeot205gti.jpeg")],
     ["Mercedes-Benz SLR McLaren", require("../assets/mercedesbenzslrmclaren.jpeg")],
     ["Saab 9-3 (YS3D)", require("../assets/saab93ys3d.jpeg")],
     ["Saab 9-5 (YS3E)", require("../assets/saab95ys3e.jpeg")],
@@ -94,12 +92,15 @@ function Top100Cars() {
     ["Volkswagen Scirocco (Mk 3)", require("../assets/volkswagensciroccomk3.jpeg")],
     ["Nissan Skyline 25GT (R34)", require("../assets/nissanskyline25gtr34.jpeg")],
     ["Honda CR-X (EF8)", require("../assets/hondacrxef8.jpeg")],
+    ["Nissan Fairlady Z (S30)", require("../assets/nissanfairladyzs30.jpeg")],
     ["Ferrari 458 Italia", require("../assets/ferrari458italia.jpeg")],
     ["McLaren MP4-12C", require("../assets/mclarenmp412c.jpeg")],
     ["Jaguar XJ (X351)", require("../assets/jaguarxjx351.jpeg")],
     ["Jaguar XF (X250)", require("../assets/jaguarxfx250.jpeg")],
-    ["Toyota Camry (XV20)", require("../assets/toyotacamryxv20.jpeg")],
+    ["Peugeot 405 Mi16", require("../assets/peugeot405mi16.jpeg")],
+    ["Volvo V40 (1995)", require("../assets/volvov401995.jpeg")],
     ["Chrysler 300 (LX)", require("../assets/chrysler300lx.jpeg")],
+    ["Ferrari 412", require("../assets/ferrari412.jpeg")],
     ["Alpine A110 (2017)", require("../assets/alpinea1102017.jpeg")],
     ["Lamborghini Countach LP400", require("../assets/lamborghinicountachlp400.jpeg")],
     ["Lamborghini Aventador LP700-4", require("../assets/lamborghiniaventadorlp7004.jpeg")],
@@ -107,7 +108,6 @@ function Top100Cars() {
     ["Holden Commodore HSV (VE)", require("../assets/holdencommodorehsvve.jpeg")],
     ["Honda S660 (JW5)", require("../assets/hondas660jw5.jpeg")],
     ["Toyota Corolla (E160)", require("../assets/toyotacorollae160.jpeg")],
-    ["Smart Fortwo (W451)", require("../assets/smartfortwow451.jpeg")],
     ["Lexus ES (XV30)", require("../assets/lexusesxv30.jpeg")],
   ]);
   let carCards = Array
@@ -116,11 +116,12 @@ function Top100Cars() {
     .map((entry: [string, string], index: number) => {
         const [key, val] = entry;
         return (
-          <Col key={key} xs={12} md={6} onClick={() => expandCard(key, val)}>
+          <Col key={key} xs={12} onClick={() => expandCard(key, val)}>
             <Top100CarCard
               key={key}
               imageSource={val}
-              title={String(index + 1).padStart(3, "0") + ": " + key}
+              position={String(index + 1).padStart(3, "0")}
+              title={key}
             />
           </Col>
         );
@@ -142,9 +143,9 @@ function Top100Cars() {
   return (
     <>
       <Col xs={12}>
-          <Row className={"g-0"}>
-            {carCards}
-          </Row>
+        <Row className={"g-0"}>
+          {carCards}
+        </Row>
       </Col>
       <Col xs={12}>
         <div className={"px-3 py-5 bg-white"}>
