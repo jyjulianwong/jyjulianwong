@@ -35,7 +35,7 @@ function App() {
           <div className={"mt-5 mb-3"}>
             jyjulianwong v{process.env.REACT_APP_VERSION}.
             <br/>
-            Authored by Julian Wong in 2024.
+            Authored by Julian Wong in 2025.
             <br/>
             <a
               href="https://www.flaticon.com/free-icons/landing-page"
