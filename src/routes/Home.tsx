@@ -14,8 +14,8 @@ function Home() {
         <BannerCard
           title="Hi! I'm Julian."
           labels={[
-            "Natural language processing",
             "Generative AI",
+            "Natural language processing",
             "Machine learning",
             "Data science",
             "Software engineering",
