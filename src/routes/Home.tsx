@@ -1,3 +1,4 @@
+import AppsCarouselCard from "../components/AppsCarouselCard";
 import BannerCard from "../components/BannerCard";
 import ContactCard from "../components/ContactCard";
 import PortfolioCard from "../components/PortfolioCard";
@@ -10,6 +11,9 @@ import {Col} from "react-bootstrap";
 function Home() {
   return (
     <>
+      <Col xs={12}>
+        <AppsCarouselCard darkened/>
+      </Col>
       <Col xs={12}>
         <BannerCard
           title="Hi! I'm Julian."

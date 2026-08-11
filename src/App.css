@@ -40,6 +40,58 @@ mark {
   transition: height 0.5s ease;
 }
 
+.apps-carousel {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 8px 4px 16px;
+  scrollbar-width: thin;
+}
+
+.apps-carousel-item {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: center;
+  width: 96px;
+}
+
+.apps-carousel-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--bg-white);
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+}
+
+.apps-carousel-item:hover .apps-carousel-item-icon {
+  transform: scale(1.08);
+}
+
+.apps-carousel-item-icon img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+.apps-carousel-item-title {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /*.card-expandable:hover {*/
 /*  height: 400px;*/
 /*  transition: height 0.5s ease;*/
