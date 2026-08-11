@@ -42,7 +42,7 @@ mark {
 
 .apps-carousel {
   display: flex;
-  gap: 24px;
+  gap: 16px;
   overflow-x: auto;
   overflow-y: hidden;
   padding: 8px 4px 16px;
@@ -52,41 +52,63 @@ mark {
 .apps-carousel-item {
   display: flex;
   flex: 0 0 auto;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  width: 96px;
+  gap: 14px;
+  width: 280px;
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(128, 128, 128, 0.15);
+  text-align: left;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.apps-carousel-item:hover {
+  background: rgba(128, 128, 128, 0.25);
+  transform: translateY(-2px);
 }
 
 .apps-carousel-item-icon {
   display: flex;
+  flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
+  width: 64px;
+  height: 64px;
   border-radius: 16px;
   background: var(--bg-white);
   overflow: hidden;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
-  transition: transform 0.2s ease;
-}
-
-.apps-carousel-item:hover .apps-carousel-item-icon {
-  transform: scale(1.08);
 }
 
 .apps-carousel-item-icon img {
-  width: 70%;
-  height: 70%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.apps-carousel-item-text {
+  min-width: 0;
 }
 
 .apps-carousel-item-title {
-  margin-top: 8px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 600;
   line-height: 1.2;
-  text-align: center;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.apps-carousel-item-description {
+  margin-top: 4px;
+  font-size: 0.75rem;
+  line-height: 1.3;
+  opacity: 0.75;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;

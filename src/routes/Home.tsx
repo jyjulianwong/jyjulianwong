@@ -12,9 +12,6 @@ function Home() {
   return (
     <>
       <Col xs={12}>
-        <AppsCarouselCard darkened/>
-      </Col>
-      <Col xs={12}>
         <BannerCard
           title="Hi! I'm Julian."
           labels={[
@@ -26,6 +23,9 @@ function Home() {
             "Cloud computing",
           ]}
         />
+      </Col>
+      <Col xs={12}>
+        <AppsCarouselCard/>
       </Col>
       <Col xs={12}>
         <PortfolioCard
