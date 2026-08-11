@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/jyjulianwong/static/css/main.d97c6c32.css",
-    "main.js": "/jyjulianwong/static/js/main.aec37078.js",
+    "main.css": "/jyjulianwong/static/css/main.3bd05ee1.css",
+    "main.js": "/jyjulianwong/static/js/main.2e6faa3f.js",
     "static/js/453.5d825beb.chunk.js": "/jyjulianwong/static/js/453.5d825beb.chunk.js",
     "static/media/ferrari458italia.jpeg": "/jyjulianwong/static/media/ferrari458italia.9995d5f23350ecd4868f.jpeg",
     "static/media/lexuslcurz100.jpeg": "/jyjulianwong/static/media/lexuslcurz100.e9de2b2c50cd9b402e7c.jpeg",
@@ -108,16 +108,16 @@
     "static/media/biiah.png": "/jyjulianwong/static/media/biiah.e9c4f2abfb62d2034ddf.png",
     "static/media/lanciafulviaseries3.jpeg": "/jyjulianwong/static/media/lanciafulviaseries3.73c121d587389afaab07.jpeg",
     "static/media/logo512.png": "/jyjulianwong/static/media/logo512.20b09aa521956cdc7fcf.png",
+    "static/media/apple-touch-icon.png": "/jyjulianwong/static/media/apple-touch-icon.249d187533ce44acfb8c.png",
     "static/media/github.png": "/jyjulianwong/static/media/github.f11021803f68852df283.png",
     "static/media/email.png": "/jyjulianwong/static/media/email.51b08bcbb5af7a861c31.png",
     "index.html": "/jyjulianwong/index.html",
-    "static/media/favicon.svg": "/jyjulianwong/static/media/favicon.1f8dc5c2660902a6b9cb22a9a0182d97.svg",
-    "main.d97c6c32.css.map": "/jyjulianwong/static/css/main.d97c6c32.css.map",
-    "main.aec37078.js.map": "/jyjulianwong/static/js/main.aec37078.js.map",
+    "main.3bd05ee1.css.map": "/jyjulianwong/static/css/main.3bd05ee1.css.map",
+    "main.2e6faa3f.js.map": "/jyjulianwong/static/js/main.2e6faa3f.js.map",
     "453.5d825beb.chunk.js.map": "/jyjulianwong/static/js/453.5d825beb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d97c6c32.css",
-    "static/js/main.aec37078.js"
+    "static/css/main.3bd05ee1.css",
+    "static/js/main.2e6faa3f.js"
   ]
 }
