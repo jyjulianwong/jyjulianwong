@@ -2,19 +2,21 @@ import {useEffect, useState} from "react";
 import {Container} from "react-bootstrap";
 
 const GITHUB_USERNAME = "jyjulianwong";
-const CACHE_KEY = "apps-carousel-cache-v1";
+const CACHE_KEY = "apps-carousel-cache-v2";
 const CACHE_TTL_MS = 15 * 60 * 1000;
-const fallbackIconSource = require("../assets/favicon.svg").default;
+const fallbackIconSource = require("../assets/apple-touch-icon.png");
 
 interface AppInfo {
   name: string;
   title: string;
+  description: string;
   url: string;
   favicon: string;
 }
 
 interface GitHubRepo {
   name: string;
+  description: string | null;
   fork: boolean;
   has_pages: boolean;
   owner: { login: string };
@@ -22,8 +24,10 @@ interface GitHubRepo {
 
 /**
  * Fetches the deployed page for a GitHub Pages-enabled repository and
- * extracts its title and favicon so the app can be listed without any
- * manual bookkeeping as new repositories are published or removed.
+ * extracts its title and icon so the app can be listed without any manual
+ * bookkeeping as new repositories are published or removed. The Apple touch
+ * icon is preferred over the favicon since it's higher resolution and fills
+ * a rounded square tile better.
  * @param {GitHubRepo} repo - The repository to resolve.
  * @return {Promise<AppInfo | null>} The resolved app, or null if the page could not be read.
  */
@@ -35,10 +39,13 @@ async function resolveApp(repo: GitHubRepo): Promise<AppInfo | null> {
 
     const doc = new DOMParser().parseFromString(await res.text(), "text/html");
     const title = doc.querySelector("title")?.textContent?.trim() || repo.name.replace(/[-_]/g, " ");
-    const iconHref = doc.querySelector("link[rel~=\"icon\"]")?.getAttribute("href");
-    const favicon = new URL(iconHref || "favicon.ico", pagesUrl).href;
+    const iconHref = doc
+      .querySelector("link[rel=\"apple-touch-icon\"], link[rel=\"apple-touch-icon-precomposed\"]")
+      ?.getAttribute("href")
+      || doc.querySelector("link[rel~=\"icon\"]")?.getAttribute("href");
+    const favicon = new URL(iconHref || "apple-touch-icon.png", pagesUrl).href;
 
-    return {name: repo.name, title, url: pagesUrl, favicon};
+    return {name: repo.name, title, description: repo.description || "", url: pagesUrl, favicon};
   } catch {
     return null;
   }
@@ -120,7 +127,7 @@ function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
   return (
     <div className={"px-3 py-5" + " " + bgClassName}>
       <Container>
-        <h1>Apps</h1>
+        <h1>My Apps</h1>
         <div className={"apps-carousel"}>
           {apps.map((app) => (
             <a
@@ -142,7 +149,12 @@ function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
                   }}
                 />
               </div>
-              <div className={"apps-carousel-item-title"}>{app.title}</div>
+              <div className={"apps-carousel-item-text"}>
+                <div className={"apps-carousel-item-title"}>{app.title}</div>
+                {app.description && (
+                  <div className={"apps-carousel-item-description"}>{app.description}</div>
+                )}
+              </div>
             </a>
           ))}
         </div>
