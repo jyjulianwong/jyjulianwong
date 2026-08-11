@@ -45,7 +45,7 @@ mark {
   gap: 16px;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 8px 4px 16px;
+  padding: 8px 1.5rem 16px;
   scrollbar-width: thin;
 }
 

@@ -125,40 +125,40 @@ function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
   const bgClassName = props.darkened ? "bg-black" : "bg-white";
 
   return (
-    <div className={"px-3 py-5" + " " + bgClassName}>
-      <Container>
+    <div className={"py-5" + " " + bgClassName}>
+      <Container className={"px-3"}>
         <h1>My Apps</h1>
-        <div className={"apps-carousel"}>
-          {apps.map((app) => (
-            <a
-              key={app.name}
-              href={app.url}
-              target={"_blank"}
-              rel={"noreferrer"}
-              className={"apps-carousel-item"}
-              style={{textDecoration: "none", color: "inherit"}}
-            >
-              <div className={"apps-carousel-item-icon"}>
-                <img
-                  src={app.favicon}
-                  alt={app.title}
-                  onError={(e) => {
-                    const img = e.target as HTMLImageElement;
-                    img.onerror = null;
-                    img.src = fallbackIconSource;
-                  }}
-                />
-              </div>
-              <div className={"apps-carousel-item-text"}>
-                <div className={"apps-carousel-item-title"}>{app.title}</div>
-                {app.description && (
-                  <div className={"apps-carousel-item-description"}>{app.description}</div>
-                )}
-              </div>
-            </a>
-          ))}
-        </div>
       </Container>
+      <div className={"apps-carousel"}>
+        {apps.map((app) => (
+          <a
+            key={app.name}
+            href={app.url}
+            target={"_blank"}
+            rel={"noreferrer"}
+            className={"apps-carousel-item"}
+            style={{textDecoration: "none", color: "inherit"}}
+          >
+            <div className={"apps-carousel-item-icon"}>
+              <img
+                src={app.favicon}
+                alt={app.title}
+                onError={(e) => {
+                  const img = e.target as HTMLImageElement;
+                  img.onerror = null;
+                  img.src = fallbackIconSource;
+                }}
+              />
+            </div>
+            <div className={"apps-carousel-item-text"}>
+              <div className={"apps-carousel-item-title"}>{app.title}</div>
+              {app.description && (
+                <div className={"apps-carousel-item-description"}>{app.description}</div>
+              )}
+            </div>
+          </a>
+        ))}
+      </div>
     </div>
   );
 }
