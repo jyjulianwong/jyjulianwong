@@ -34,7 +34,7 @@ function BannerCard(props: BannerCardProps): JSX.Element {
     <div
       className={"d-flex justify-content-center align-items-center" + " " + bgClassName}
       style={{
-        height: 360,
+        height: 220,
         backgroundImage: "url(" + props.imageSource + ")",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",

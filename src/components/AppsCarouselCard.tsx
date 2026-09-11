@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {Container} from "react-bootstrap";
 
 const GITHUB_USERNAME = "jyjulianwong";
@@ -103,6 +103,36 @@ interface AppsCarouselCardProps {
  */
 function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
   const [apps, setApps] = useState<AppInfo[]>([]);
+  const [isDragging, setIsDragging] = useState(false);
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const dragStateRef = useRef({startX: 0, startScrollLeft: 0, moved: false});
+
+  const handleDragStart = (e: React.MouseEvent<HTMLDivElement>) => {
+    const scroller = scrollerRef.current;
+    if (!scroller) return;
+    dragStateRef.current = {
+      startX: e.pageX,
+      startScrollLeft: scroller.scrollLeft,
+      moved: false,
+    };
+    setIsDragging(true);
+  };
+
+  const handleDragMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const scroller = scrollerRef.current;
+    if (!scroller || !isDragging) return;
+    const delta = e.pageX - dragStateRef.current.startX;
+    if (Math.abs(delta) > 5) dragStateRef.current.moved = true;
+    scroller.scrollLeft = dragStateRef.current.startScrollLeft - delta;
+  };
+
+  const handleDragEnd = () => {
+    setIsDragging(false);
+  };
+
+  const handleItemClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (dragStateRef.current.moved) e.preventDefault();
+  };
 
   useEffect(() => {
     let cancelled = false;
@@ -126,10 +156,17 @@ function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
 
   return (
     <div className={"py-5" + " " + bgClassName}>
-      <Container className={"px-3"}>
+      <Container className={"px-3 mb-3"}>
         <h1>My Apps</h1>
       </Container>
-      <div className={"apps-carousel"}>
+      <div
+        ref={scrollerRef}
+        className={"apps-carousel" + (isDragging ? " is-dragging" : "")}
+        onMouseDown={handleDragStart}
+        onMouseMove={handleDragMove}
+        onMouseUp={handleDragEnd}
+        onMouseLeave={handleDragEnd}
+      >
         {apps.map((app) => (
           <a
             key={app.name}
@@ -138,6 +175,7 @@ function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
             rel={"noreferrer"}
             className={"apps-carousel-item"}
             style={{textDecoration: "none", color: "inherit"}}
+            onClick={handleItemClick}
           >
             <div className={"apps-carousel-item-icon"}>
               <img
