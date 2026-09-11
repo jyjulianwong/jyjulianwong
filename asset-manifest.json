@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/jyjulianwong/static/css/main.f3d90062.css",
-    "main.js": "/jyjulianwong/static/js/main.adf866ba.js",
+    "main.css": "/jyjulianwong/static/css/main.a24610d3.css",
+    "main.js": "/jyjulianwong/static/js/main.0b92da65.js",
     "static/js/453.5d825beb.chunk.js": "/jyjulianwong/static/js/453.5d825beb.chunk.js",
     "static/media/ferrari458italia.jpeg": "/jyjulianwong/static/media/ferrari458italia.9995d5f23350ecd4868f.jpeg",
     "static/media/lexuslcurz100.jpeg": "/jyjulianwong/static/media/lexuslcurz100.e9de2b2c50cd9b402e7c.jpeg",
@@ -112,12 +112,12 @@
     "static/media/github.png": "/jyjulianwong/static/media/github.f11021803f68852df283.png",
     "static/media/email.png": "/jyjulianwong/static/media/email.51b08bcbb5af7a861c31.png",
     "index.html": "/jyjulianwong/index.html",
-    "main.f3d90062.css.map": "/jyjulianwong/static/css/main.f3d90062.css.map",
-    "main.adf866ba.js.map": "/jyjulianwong/static/js/main.adf866ba.js.map",
+    "main.a24610d3.css.map": "/jyjulianwong/static/css/main.a24610d3.css.map",
+    "main.0b92da65.js.map": "/jyjulianwong/static/js/main.0b92da65.js.map",
     "453.5d825beb.chunk.js.map": "/jyjulianwong/static/js/453.5d825beb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f3d90062.css",
-    "static/js/main.adf866ba.js"
+    "static/css/main.a24610d3.css",
+    "static/js/main.0b92da65.js"
   ]
 }
