@@ -101,37 +101,30 @@ interface AppsCarouselCardProps {
  * @param {AppsCarouselCardProps} props - A list of properties.
  * @constructor
  */
+const AUTO_SCROLL_PX_PER_SEC = 40;
+const TOUCH_RESUME_DELAY_MS = 1200;
+
 function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
   const [apps, setApps] = useState<AppInfo[]>([]);
-  const [isDragging, setIsDragging] = useState(false);
   const scrollerRef = useRef<HTMLDivElement>(null);
-  const dragStateRef = useRef({startX: 0, startScrollLeft: 0, moved: false});
+  const isPausedRef = useRef(false);
+  const resumeTimeoutRef = useRef<number | undefined>(undefined);
 
-  const handleDragStart = (e: React.MouseEvent<HTMLDivElement>) => {
-    const scroller = scrollerRef.current;
-    if (!scroller) return;
-    dragStateRef.current = {
-      startX: e.pageX,
-      startScrollLeft: scroller.scrollLeft,
-      moved: false,
-    };
-    setIsDragging(true);
+  const pauseAutoScroll = () => {
+    if (resumeTimeoutRef.current !== undefined) {
+      window.clearTimeout(resumeTimeoutRef.current);
+      resumeTimeoutRef.current = undefined;
+    }
+    isPausedRef.current = true;
   };
 
-  const handleDragMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const scroller = scrollerRef.current;
-    if (!scroller || !isDragging) return;
-    const delta = e.pageX - dragStateRef.current.startX;
-    if (Math.abs(delta) > 5) dragStateRef.current.moved = true;
-    scroller.scrollLeft = dragStateRef.current.startScrollLeft - delta;
-  };
-
-  const handleDragEnd = () => {
-    setIsDragging(false);
-  };
-
-  const handleItemClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (dragStateRef.current.moved) e.preventDefault();
+  const resumeAutoScroll = (delayMs: number) => {
+    if (resumeTimeoutRef.current !== undefined) {
+      window.clearTimeout(resumeTimeoutRef.current);
+    }
+    resumeTimeoutRef.current = window.setTimeout(() => {
+      isPausedRef.current = false;
+    }, delayMs);
   };
 
   useEffect(() => {
@@ -150,6 +143,38 @@ function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
     };
   }, []);
 
+  // Auto-scrolls the (doubled) list frame-by-frame, wrapping back to the
+  // start of the second copy once the first copy has scrolled past, giving
+  // the illusion of an infinite loop without ever resetting scrollLeft to 0.
+  useEffect(() => {
+    const scroller = scrollerRef.current;
+    if (!scroller || apps.length === 0) return;
+
+    let frameId: number;
+    let lastTimestamp: number | null = null;
+
+    const step = (timestamp: number) => {
+      if (lastTimestamp === null) lastTimestamp = timestamp;
+      // Cap elapsed time so a throttled/backgrounded tab doesn't produce a
+      // large jump in scroll position once rAF resumes ticking.
+      const elapsedMs = Math.min(timestamp - lastTimestamp, 100);
+      lastTimestamp = timestamp;
+
+      if (!isPausedRef.current) {
+        const singleSetWidth = scroller.scrollWidth / 2;
+        scroller.scrollLeft += AUTO_SCROLL_PX_PER_SEC * (elapsedMs / 1000);
+        if (scroller.scrollLeft >= singleSetWidth) {
+          scroller.scrollLeft -= singleSetWidth;
+        }
+      }
+
+      frameId = requestAnimationFrame(step);
+    };
+
+    frameId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(frameId);
+  }, [apps]);
+
   if (apps.length === 0) return null;
 
   const bgClassName = props.darkened ? "bg-black" : "bg-white";
@@ -161,21 +186,23 @@ function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
       </Container>
       <div
         ref={scrollerRef}
-        className={"apps-carousel" + (isDragging ? " is-dragging" : "")}
-        onMouseDown={handleDragStart}
-        onMouseMove={handleDragMove}
-        onMouseUp={handleDragEnd}
-        onMouseLeave={handleDragEnd}
+        className={"apps-carousel"}
+        onMouseEnter={pauseAutoScroll}
+        onMouseLeave={() => resumeAutoScroll(0)}
+        onTouchStart={pauseAutoScroll}
+        onTouchEnd={() => resumeAutoScroll(TOUCH_RESUME_DELAY_MS)}
+        onTouchCancel={() => resumeAutoScroll(TOUCH_RESUME_DELAY_MS)}
       >
-        {apps.map((app) => (
+        {[...apps, ...apps].map((app, index) => (
           <a
-            key={app.name}
+            key={`${app.name}-${index}`}
             href={app.url}
             target={"_blank"}
             rel={"noreferrer"}
             className={"apps-carousel-item"}
             style={{textDecoration: "none", color: "inherit"}}
-            onClick={handleItemClick}
+            aria-hidden={index >= apps.length}
+            tabIndex={index >= apps.length ? -1 : 0}
           >
             <div className={"apps-carousel-item-icon"}>
               <img

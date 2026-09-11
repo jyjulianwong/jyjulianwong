@@ -45,12 +45,6 @@ mark {
   overflow-y: hidden;
   padding: 8px 1.5rem 16px;
   scrollbar-width: thin;
-  cursor: grab;
-  user-select: none;
-}
-
-.apps-carousel.is-dragging {
-  cursor: grabbing;
 }
 
 .apps-carousel-item {
