@@ -44,7 +44,12 @@ mark {
   overflow-x: auto;
   overflow-y: hidden;
   padding: 8px 1.5rem 16px;
-  scrollbar-width: thin;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.apps-carousel::-webkit-scrollbar {
+  display: none;
 }
 
 .apps-carousel-item {
