@@ -15,7 +15,7 @@ mark {
 
 .App {
   background: var(--cl-gutter);
-  font-family: "Baskervville", serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: medium;
