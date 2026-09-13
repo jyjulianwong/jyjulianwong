@@ -46,10 +46,16 @@ mark {
   padding: 8px 1.5rem 16px;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  cursor: grab;
 }
 
 .apps-carousel::-webkit-scrollbar {
   display: none;
+}
+
+.apps-carousel.is-dragging {
+  cursor: grabbing;
+  user-select: none;
 }
 
 .apps-carousel-item {

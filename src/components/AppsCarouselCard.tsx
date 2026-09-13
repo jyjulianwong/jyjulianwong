@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from "react";
+import {useCallback, useEffect, useRef, useState} from "react";
 import {Container} from "react-bootstrap";
 
 const GITHUB_USERNAME = "jyjulianwong";
@@ -106,9 +106,14 @@ const TOUCH_RESUME_DELAY_MS = 1200;
 
 function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
   const [apps, setApps] = useState<AppInfo[]>([]);
+  const [isDragging, setIsDragging] = useState(false);
   const scrollerRef = useRef<HTMLDivElement>(null);
   const isPausedRef = useRef(false);
   const resumeTimeoutRef = useRef<number | undefined>(undefined);
+  const isDraggingRef = useRef(false);
+  const dragStartXRef = useRef(0);
+  const dragStartScrollLeftRef = useRef(0);
+  const dragMovedRef = useRef(false);
 
   const pauseAutoScroll = () => {
     if (resumeTimeoutRef.current !== undefined) {
@@ -127,6 +132,50 @@ function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
     }, delayMs);
   };
 
+  // Mouse drag-to-scroll uses window-level listeners (rather than handlers on
+  // the carousel div alone) so a drag keeps tracking correctly even if the
+  // cursor briefly moves outside the carousel's bounds or is released there.
+  const handleWindowMouseMove = useCallback((e: MouseEvent) => {
+    const scroller = scrollerRef.current;
+    if (!scroller || !isDraggingRef.current) return;
+    const delta = e.pageX - dragStartXRef.current;
+    if (Math.abs(delta) > 5) dragMovedRef.current = true;
+    scroller.scrollLeft = dragStartScrollLeftRef.current - delta;
+  }, []);
+
+  const handleWindowMouseUp = useCallback(() => {
+    isDraggingRef.current = false;
+    setIsDragging(false);
+    window.removeEventListener("mousemove", handleWindowMouseMove);
+    window.removeEventListener("mouseup", handleWindowMouseUp);
+    resumeAutoScroll(0);
+  }, [handleWindowMouseMove]);
+
+  useEffect(() => {
+    return () => {
+      window.removeEventListener("mousemove", handleWindowMouseMove);
+      window.removeEventListener("mouseup", handleWindowMouseUp);
+    };
+  }, [handleWindowMouseMove, handleWindowMouseUp]);
+
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    const scroller = scrollerRef.current;
+    if (!scroller) return;
+    e.preventDefault();
+    isDraggingRef.current = true;
+    dragMovedRef.current = false;
+    dragStartXRef.current = e.pageX;
+    dragStartScrollLeftRef.current = scroller.scrollLeft;
+    setIsDragging(true);
+    pauseAutoScroll();
+    window.addEventListener("mousemove", handleWindowMouseMove);
+    window.addEventListener("mouseup", handleWindowMouseUp);
+  };
+
+  const handleItemClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (dragMovedRef.current) e.preventDefault();
+  };
+
   useEffect(() => {
     let cancelled = false;
 
@@ -143,22 +192,26 @@ function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
     };
   }, []);
 
-  // Auto-scrolls the (doubled) list frame-by-frame, wrapping back to the
+  // Auto-scrolls the (doubled) list on a fixed timer, wrapping back to the
   // start of the second copy once the first copy has scrolled past, giving
   // the illusion of an infinite loop without ever resetting scrollLeft to 0.
+  // A plain interval is used instead of requestAnimationFrame because some
+  // mobile browsers tie rAF delivery to the OS-level reduced-motion/animation
+  // setting and can stop ticking it altogether, which would stall the
+  // carousel entirely rather than merely slowing it down.
   useEffect(() => {
     const scroller = scrollerRef.current;
     if (!scroller || apps.length === 0) return;
 
-    let frameId: number;
-    let lastTimestamp: number | null = null;
+    const TICK_MS = 30;
+    let lastTime = Date.now();
 
-    const step = (timestamp: number) => {
-      if (lastTimestamp === null) lastTimestamp = timestamp;
+    const intervalId = window.setInterval(() => {
+      const now = Date.now();
       // Cap elapsed time so a throttled/backgrounded tab doesn't produce a
-      // large jump in scroll position once rAF resumes ticking.
-      const elapsedMs = Math.min(timestamp - lastTimestamp, 100);
-      lastTimestamp = timestamp;
+      // large jump in scroll position once ticking resumes at full speed.
+      const elapsedMs = Math.min(now - lastTime, 100);
+      lastTime = now;
 
       if (!isPausedRef.current) {
         const singleSetWidth = scroller.scrollWidth / 2;
@@ -167,12 +220,9 @@ function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
           scroller.scrollLeft -= singleSetWidth;
         }
       }
+    }, TICK_MS);
 
-      frameId = requestAnimationFrame(step);
-    };
-
-    frameId = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(frameId);
+    return () => window.clearInterval(intervalId);
   }, [apps]);
 
   if (apps.length === 0) return null;
@@ -186,9 +236,10 @@ function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
       </Container>
       <div
         ref={scrollerRef}
-        className={"apps-carousel"}
+        className={"apps-carousel" + (isDragging ? " is-dragging" : "")}
         onMouseEnter={pauseAutoScroll}
         onMouseLeave={() => resumeAutoScroll(0)}
+        onMouseDown={handleMouseDown}
         onTouchStart={pauseAutoScroll}
         onTouchEnd={() => resumeAutoScroll(TOUCH_RESUME_DELAY_MS)}
         onTouchCancel={() => resumeAutoScroll(TOUCH_RESUME_DELAY_MS)}
@@ -203,6 +254,7 @@ function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
             style={{textDecoration: "none", color: "inherit"}}
             aria-hidden={index >= apps.length}
             tabIndex={index >= apps.length ? -1 : 0}
+            onClick={handleItemClick}
           >
             <div className={"apps-carousel-item-icon"}>
               <img
