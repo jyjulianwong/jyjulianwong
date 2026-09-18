@@ -2,8 +2,8 @@ import {useCallback, useEffect, useRef, useState} from "react";
 import {Container} from "react-bootstrap";
 
 const GITHUB_USERNAME = "jyjulianwong";
-const CACHE_KEY = "apps-carousel-cache-v2";
-const CACHE_TTL_MS = 15 * 60 * 1000;
+const CACHE_KEY = "apps-carousel-cache-v3";
+const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
 const fallbackIconSource = require("../assets/apple-touch-icon.png");
 
 interface AppInfo {
@@ -53,13 +53,13 @@ async function resolveApp(repo: GitHubRepo): Promise<AppInfo | null> {
 
 /**
  * Discovers every GitHub Pages web app deployed under the profile, caching
- * the result in sessionStorage for a short period to stay within GitHub's
- * unauthenticated API rate limits across repeated visits in the same session.
+ * the result in localStorage for 24 hours to stay within GitHub's
+ * unauthenticated API rate limits across repeated visits.
  * @return {Promise<AppInfo[]>} The list of resolved apps.
  */
 async function loadApps(): Promise<AppInfo[]> {
   try {
-    const cached = JSON.parse(sessionStorage.getItem(CACHE_KEY) || "null");
+    const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || "null");
     if (cached && Date.now() - cached.timestamp < CACHE_TTL_MS) {
       return cached.apps;
     }
@@ -83,7 +83,7 @@ async function loadApps(): Promise<AppInfo[]> {
     .sort((a, b) => a.title.localeCompare(b.title));
 
   try {
-    sessionStorage.setItem(CACHE_KEY, JSON.stringify({timestamp: Date.now(), apps}));
+    localStorage.setItem(CACHE_KEY, JSON.stringify({timestamp: Date.now(), apps}));
   } catch {
     // Ignore a cache write failure (e.g. storage disabled or full).
   }
