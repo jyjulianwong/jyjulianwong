@@ -103,9 +103,11 @@ interface AppsCarouselCardProps {
  */
 const AUTO_SCROLL_PX_PER_SEC = 40;
 const TOUCH_RESUME_DELAY_MS = 1200;
+const SKELETON_ITEM_COUNT = 4;
 
 function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
   const [apps, setApps] = useState<AppInfo[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [isDragging, setIsDragging] = useState(false);
   const scrollerRef = useRef<HTMLDivElement>(null);
   const isPausedRef = useRef(false);
@@ -184,7 +186,10 @@ function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
         if (!cancelled) setApps(apps);
       })
       .catch(() => {
-        // Leave the card hidden if the apps could not be discovered.
+        // Leave the card empty if the apps could not be discovered.
+      })
+      .finally(() => {
+        if (!cancelled) setIsLoading(false);
       });
 
     return () => {
@@ -225,7 +230,7 @@ function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
     return () => window.clearInterval(intervalId);
   }, [apps]);
 
-  if (apps.length === 0) return null;
+  if (!isLoading && apps.length === 0) return null;
 
   const bgClassName = props.darkened ? "bg-black" : "bg-white";
 
@@ -234,48 +239,63 @@ function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
       <Container className={"px-3 mb-3"}>
         <h1>My Apps</h1>
       </Container>
-      <div
-        ref={scrollerRef}
-        className={"apps-carousel" + (isDragging ? " is-dragging" : "")}
-        onMouseEnter={pauseAutoScroll}
-        onMouseLeave={() => resumeAutoScroll(0)}
-        onMouseDown={handleMouseDown}
-        onTouchStart={pauseAutoScroll}
-        onTouchEnd={() => resumeAutoScroll(TOUCH_RESUME_DELAY_MS)}
-        onTouchCancel={() => resumeAutoScroll(TOUCH_RESUME_DELAY_MS)}
-      >
-        {[...apps, ...apps].map((app, index) => (
-          <a
-            key={`${app.name}-${index}`}
-            href={app.url}
-            target={"_blank"}
-            rel={"noreferrer"}
-            className={"apps-carousel-item"}
-            style={{textDecoration: "none", color: "inherit"}}
-            aria-hidden={index >= apps.length}
-            tabIndex={index >= apps.length ? -1 : 0}
-            onClick={handleItemClick}
-          >
-            <div className={"apps-carousel-item-icon"}>
-              <img
-                src={app.favicon}
-                alt={app.title}
-                onError={(e) => {
-                  const img = e.target as HTMLImageElement;
-                  img.onerror = null;
-                  img.src = fallbackIconSource;
-                }}
-              />
+      {isLoading ? (
+        <div className={"apps-carousel"}>
+          {Array.from({length: SKELETON_ITEM_COUNT}).map((_, index) => (
+            <div key={index} className={"apps-carousel-item apps-carousel-item-skeleton"}>
+              <div className={"apps-carousel-item-icon apps-carousel-skeleton-shimmer"}/>
+              <div className={"apps-carousel-item-text"}>
+                <div className={"apps-carousel-skeleton-line apps-carousel-skeleton-shimmer"} style={{width: "70%"}}/>
+                <div className={"apps-carousel-skeleton-line apps-carousel-skeleton-shimmer"} style={{width: "90%"}}/>
+                <div className={"apps-carousel-skeleton-line apps-carousel-skeleton-shimmer"} style={{width: "50%"}}/>
+              </div>
             </div>
-            <div className={"apps-carousel-item-text"}>
-              <div className={"apps-carousel-item-title"}>{app.title}</div>
-              {app.description && (
-                <div className={"apps-carousel-item-description"}>{app.description}</div>
-              )}
-            </div>
-          </a>
-        ))}
-      </div>
+          ))}
+        </div>
+      ) : (
+        <div
+          ref={scrollerRef}
+          className={"apps-carousel" + (isDragging ? " is-dragging" : "")}
+          onMouseEnter={pauseAutoScroll}
+          onMouseLeave={() => resumeAutoScroll(0)}
+          onMouseDown={handleMouseDown}
+          onTouchStart={pauseAutoScroll}
+          onTouchEnd={() => resumeAutoScroll(TOUCH_RESUME_DELAY_MS)}
+          onTouchCancel={() => resumeAutoScroll(TOUCH_RESUME_DELAY_MS)}
+        >
+          {[...apps, ...apps].map((app, index) => (
+            <a
+              key={`${app.name}-${index}`}
+              href={app.url}
+              target={"_blank"}
+              rel={"noreferrer"}
+              className={"apps-carousel-item"}
+              style={{textDecoration: "none", color: "inherit"}}
+              aria-hidden={index >= apps.length}
+              tabIndex={index >= apps.length ? -1 : 0}
+              onClick={handleItemClick}
+            >
+              <div className={"apps-carousel-item-icon"}>
+                <img
+                  src={app.favicon}
+                  alt={app.title}
+                  onError={(e) => {
+                    const img = e.target as HTMLImageElement;
+                    img.onerror = null;
+                    img.src = fallbackIconSource;
+                  }}
+                />
+              </div>
+              <div className={"apps-carousel-item-text"}>
+                <div className={"apps-carousel-item-title"}>{app.title}</div>
+                {app.description && (
+                  <div className={"apps-carousel-item-description"}>{app.description}</div>
+                )}
+              </div>
+            </a>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

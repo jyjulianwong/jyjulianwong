@@ -123,6 +123,55 @@ mark {
   text-overflow: ellipsis;
 }
 
+.apps-carousel-item-skeleton {
+  cursor: default;
+}
+
+.apps-carousel-item-skeleton:hover {
+  background: rgba(128, 128, 128, 0.15);
+  transform: none;
+}
+
+.apps-carousel-item-skeleton .apps-carousel-item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1 1 auto;
+}
+
+.apps-carousel-skeleton-line {
+  height: 12px;
+  border-radius: 6px;
+}
+
+.apps-carousel-skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(128, 128, 128, 0.15) 25%,
+    rgba(128, 128, 128, 0.3) 50%,
+    rgba(128, 128, 128, 0.15) 75%
+  );
+  background-size: 200% 100%;
+  animation: apps-carousel-shimmer 1.4s ease-in-out infinite;
+  box-shadow: none;
+}
+
+@keyframes apps-carousel-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apps-carousel-skeleton-shimmer {
+    animation: none;
+    background: rgba(128, 128, 128, 0.2);
+  }
+}
+
 /*.card-expandable:hover {*/
 /*  height: 400px;*/
 /*  transition: height 0.5s ease;*/
