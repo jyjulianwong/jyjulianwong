@@ -106,8 +106,13 @@ const TOUCH_RESUME_DELAY_MS = 1200;
 const SKELETON_ITEM_COUNT = 4;
 
 function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
-  const [apps, setApps] = useState<AppInfo[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  // `null` means still loading; this is kept as a single state value (rather
+  // than a separate `apps` + `isLoading` pair) because React 17's legacy
+  // ReactDOM.render does not batch state updates made from a Promise
+  // callback. Two separate setState calls there would land in two different
+  // renders, and the auto-scroll effect below (which depends on `apps`)
+  // would fire on the first render, before the scroller div exists.
+  const [apps, setApps] = useState<AppInfo[] | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const scrollerRef = useRef<HTMLDivElement>(null);
   const isPausedRef = useRef(false);
@@ -186,10 +191,7 @@ function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
         if (!cancelled) setApps(apps);
       })
       .catch(() => {
-        // Leave the card empty if the apps could not be discovered.
-      })
-      .finally(() => {
-        if (!cancelled) setIsLoading(false);
+        if (!cancelled) setApps([]);
       });
 
     return () => {
@@ -206,7 +208,7 @@ function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
   // carousel entirely rather than merely slowing it down.
   useEffect(() => {
     const scroller = scrollerRef.current;
-    if (!scroller || apps.length === 0) return;
+    if (!scroller || !apps || apps.length === 0) return;
 
     const TICK_MS = 30;
     let lastTime = Date.now();
@@ -230,7 +232,7 @@ function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
     return () => window.clearInterval(intervalId);
   }, [apps]);
 
-  if (!isLoading && apps.length === 0) return null;
+  if (apps !== null && apps.length === 0) return null;
 
   const bgClassName = props.darkened ? "bg-black" : "bg-white";
 
@@ -239,7 +241,7 @@ function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
       <Container className={"px-3 mb-3"}>
         <h1>My Apps</h1>
       </Container>
-      {isLoading ? (
+      {apps === null ? (
         <div className={"apps-carousel"}>
           {Array.from({length: SKELETON_ITEM_COUNT}).map((_, index) => (
             <div key={index} className={"apps-carousel-item apps-carousel-item-skeleton"}>
