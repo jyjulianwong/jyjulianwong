@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.2777fbd5.css",
-    "main.js": "/static/js/main.726ead4c.js",
+    "main.css": "/static/css/main.513f2bbd.css",
+    "main.js": "/static/js/main.96531fd4.js",
     "static/js/453.5d825beb.chunk.js": "/static/js/453.5d825beb.chunk.js",
     "static/media/ferrari458italia.jpeg": "/static/media/ferrari458italia.9995d5f23350ecd4868f.jpeg",
     "static/media/lexuslcurz100.jpeg": "/static/media/lexuslcurz100.e9de2b2c50cd9b402e7c.jpeg",
@@ -112,12 +112,12 @@
     "static/media/github.png": "/static/media/github.f11021803f68852df283.png",
     "static/media/email.png": "/static/media/email.51b08bcbb5af7a861c31.png",
     "index.html": "/index.html",
-    "main.2777fbd5.css.map": "/static/css/main.2777fbd5.css.map",
-    "main.726ead4c.js.map": "/static/js/main.726ead4c.js.map",
+    "main.513f2bbd.css.map": "/static/css/main.513f2bbd.css.map",
+    "main.96531fd4.js.map": "/static/js/main.96531fd4.js.map",
     "453.5d825beb.chunk.js.map": "/static/js/453.5d825beb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2777fbd5.css",
-    "static/js/main.726ead4c.js"
+    "static/css/main.513f2bbd.css",
+    "static/js/main.96531fd4.js"
   ]
 }
