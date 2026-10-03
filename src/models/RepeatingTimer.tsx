@@ -20,7 +20,6 @@ class RepeatingTimer {
       await RepeatingTimer.delay(this.interval);
       this.action();
       this.iter = (this.iter + 1) % this.iterOverflow;
-      console.log("RepeatingTimer: Tick: " + this.iter);
     }
   }
 
