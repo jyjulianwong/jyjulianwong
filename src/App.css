@@ -167,9 +167,18 @@ button:focus-visible {
   color: var(--text-muted);
 }
 
+.section-title,
+.portfolio-title {
+  font-family: var(--font-display);
+  /* Instrument Serif ships a single weight; avoid faux-bold. */
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
 .section-title {
   margin-bottom: 1.25rem;
-  font-size: clamp(1.5rem, 3.5vw, 2rem);
 }
 
 /* ==========================================================================
@@ -299,7 +308,6 @@ button:focus-visible {
 
 .portfolio-title {
   margin-bottom: 0.5rem;
-  font-size: clamp(1.5rem, 3.5vw, 2rem);
 }
 
 .portfolio-description {
