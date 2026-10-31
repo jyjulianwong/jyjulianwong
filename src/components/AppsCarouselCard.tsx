@@ -1,5 +1,4 @@
 import {useCallback, useEffect, useRef, useState} from "react";
-import {Container} from "react-bootstrap";
 
 const GITHUB_USERNAME = "jyjulianwong";
 const CACHE_KEY = "apps-carousel-cache-v3";
@@ -105,7 +104,7 @@ const AUTO_SCROLL_PX_PER_SEC = 40;
 const TOUCH_RESUME_DELAY_MS = 1200;
 const SKELETON_ITEM_COUNT = 4;
 
-function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
+function AppsCarouselCard(_props: AppsCarouselCardProps): JSX.Element | null {
   // `null` means still loading; this is kept as a single state value (rather
   // than a separate `apps` + `isLoading` pair) because React 17's legacy
   // ReactDOM.render does not batch state updates made from a Promise
@@ -234,13 +233,9 @@ function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
 
   if (apps !== null && apps.length === 0) return null;
 
-  const bgClassName = props.darkened ? "bg-black" : "bg-white";
-
   return (
-    <div className={"py-5" + " " + bgClassName}>
-      <Container className={"px-3 mb-3"}>
-        <h1>My Apps</h1>
-      </Container>
+    <section className={"glass section py-4 overflow-hidden"}>
+      <h2 className={"section-title px-3 mb-2"}>My Apps</h2>
       {apps === null ? (
         <div className={"apps-carousel"}>
           {Array.from({length: SKELETON_ITEM_COUNT}).map((_, index) => (
@@ -298,7 +293,7 @@ function AppsCarouselCard(props: AppsCarouselCardProps): JSX.Element | null {
           ))}
         </div>
       )}
-    </div>
+    </section>
   );
 }
 
