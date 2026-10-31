@@ -208,6 +208,9 @@ function AppsCarouselCard(_props: AppsCarouselCardProps): JSX.Element | null {
   useEffect(() => {
     const scroller = scrollerRef.current;
     if (!scroller || !apps || apps.length === 0) return;
+    // Respect the user's reduced-motion preference: leave the carousel
+    // static (it remains manually scrollable).
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const TICK_MS = 30;
     let lastTime = Date.now();
@@ -256,6 +259,8 @@ function AppsCarouselCard(_props: AppsCarouselCardProps): JSX.Element | null {
           onMouseEnter={pauseAutoScroll}
           onMouseLeave={() => resumeAutoScroll(0)}
           onMouseDown={handleMouseDown}
+          onFocus={pauseAutoScroll}
+          onBlur={() => resumeAutoScroll(0)}
           onTouchStart={pauseAutoScroll}
           onTouchEnd={() => resumeAutoScroll(TOUCH_RESUME_DELAY_MS)}
           onTouchCancel={() => resumeAutoScroll(TOUCH_RESUME_DELAY_MS)}
