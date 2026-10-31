@@ -1,3 +1,6 @@
+// Dot colours cycle through the same hues as the ambient background.
+const DOT_COLOURS = ["#6366f1", "#ec4899", "#06b6d4", "#10b981", "#f59e0b", "#8b5cf6"];
+
 interface BannerCardProps {
   imageSource?: string;
   title: string;
@@ -13,7 +16,19 @@ interface BannerCardProps {
 function BannerCard(props: BannerCardProps): JSX.Element {
   const labels = props.labels
     .filter((label: string) => label !== "")
-    .map((label: string) => <li key={label} className="chip">{label}</li>);
+    .map((label: string, index: number) => (
+      <li
+        key={label}
+        className="chip"
+        style={{
+          "--dot": DOT_COLOURS[index % DOT_COLOURS.length],
+          "--delay": (index * 0.4) + "s",
+        } as React.CSSProperties}
+      >
+        <span className="chip-dot" aria-hidden="true"/>
+        {label}
+      </li>
+    ));
 
   return (
     <section
