@@ -2,7 +2,6 @@ import AppsCarouselCard from "../components/AppsCarouselCard";
 import BannerCard from "../components/BannerCard";
 import ContactCard from "../components/ContactCard";
 import PortfolioCard from "../components/PortfolioCard";
-import {Col} from "react-bootstrap";
 
 /**
  * Home.
@@ -11,7 +10,6 @@ import {Col} from "react-bootstrap";
 function Home() {
   return (
     <>
-      <Col xs={12}>
         <BannerCard
           title="Hi! I'm Julian."
           labels={[
@@ -23,11 +21,7 @@ function Home() {
             "Cloud computing",
           ]}
         />
-      </Col>
-      <Col xs={12}>
         <AppsCarouselCard/>
-      </Col>
-      <Col xs={12}>
         <PortfolioCard
           imageSource={require("../assets/polarrec.png")}
           title="PolarRec"
@@ -38,10 +32,7 @@ function Home() {
           description="An ML-powered academic resource recommendation engine, tailor-made for the Zotero research assistant platform."
           redirect="https://github.com/jyjulianwong/PolarRec"
           redirectText="See the repository"
-          darkened
         />
-      </Col>
-      <Col xs={12}>
         <PortfolioCard
           imageSource={require("../assets/amphere.png")}
           title="Amphere Web App"
@@ -53,8 +44,6 @@ function Home() {
           redirect="https://github.com/Amphere-Ltd/Amphere-WebApp-React"
           redirectText="See the repository"
         />
-      </Col>
-      <Col xs={12}>
         <PortfolioCard
           imageSource={require("../assets/catapultsports.png")}
           title="RaceWatch"
@@ -65,10 +54,7 @@ function Home() {
           description="Developed performance analysis software for elite motorsport teams for over 10 series and championships, enabling teams to visualise trends, make in-race strategic decisions and review driver performance."
           redirect="https://sbgsportssoftware.com/product/racewatch-for-teams"
           redirectText="Learn more"
-          darkened
         />
-      </Col>
-      <Col xs={12}>
         <PortfolioCard
           imageSource={require("../assets/biiah.png")}
           title="Biiah iOS App"
@@ -80,15 +66,12 @@ function Home() {
           redirect="https://biiah.com"
           redirectText="Learn more"
         />
-      </Col>
-      <Col xs={12}>
         <ContactCard
           title={"Contact Me"}
           email={"julianwong2000@gmail.com"}
           linkedin={"linkedin.com/in/jyjulianwong"}
           github={"github.com/jyjulianwong"}
         />
-      </Col>
     </>
   );
 }

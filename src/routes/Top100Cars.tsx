@@ -1,6 +1,5 @@
-import Top100CarCard from "../components/Top100CarCard";
 import {useState} from "react";
-import {Col, Modal, Row} from "react-bootstrap";
+import {Modal} from "react-bootstrap";
 
 /**
  * Top 100 Cars.
@@ -116,14 +115,19 @@ function Top100Cars() {
     .map((entry: [string, string], index: number) => {
         const [key, val] = entry;
         return (
-          <Col key={key} xs={12} onClick={() => expandCard(key, val)}>
-            <Top100CarCard
-              key={key}
-              imageSource={val}
-              position={String(index + 1).padStart(3, "0")}
-              title={key}
-            />
-          </Col>
+          <button
+            key={key}
+            type={"button"}
+            className={"car-card glass"}
+            onClick={() => expandCard(key, val)}
+            aria-label={"View " + key}
+            style={{backgroundImage: "url(" + val + ")"}}
+          >
+            <span className={"car-card-caption"}>
+              <span className={"car-rank"}>{String(index + 1).padStart(3, "0")}</span>
+              <span>{key}</span>
+            </span>
+          </button>
         );
       }
     );
@@ -142,18 +146,14 @@ function Top100Cars() {
 
   return (
     <>
-      <Col xs={12}>
-        <Row className={"g-0"}>
-          {carCards}
-        </Row>
-      </Col>
-      <Col xs={12}>
-        <div className={"px-3 py-5 bg-white"}>
-          This is a list of my personal top 100 favourite cars ever made,
-          determined on the basis of design, public reception, historical
-          significance, and performance.
-        </div>
-      </Col>
+      <p className={"intro-card glass section mb-0"}>
+        This is a list of my personal top 100 favourite cars ever made,
+        determined on the basis of design, public reception, historical
+        significance, and performance.
+      </p>
+      <div className={"car-list"}>
+        {carCards}
+      </div>
       <Modal
         size="xl"
         aria-labelledby="contained-modal-title-vcenter"

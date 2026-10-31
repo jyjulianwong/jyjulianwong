@@ -1,11 +1,16 @@
 import {useEffect, useState} from "react";
-import {Container, Navbar} from "react-bootstrap";
+import {Navbar} from "react-bootstrap";
 import {RepeatingTimer} from "../models/RepeatingTimer";
 
 interface FixedAnimatedNavbarProps {
   imageSource?: string;
 }
 
+/**
+ * A floating glass navigation pill with an animated terminal-style cursor.
+ * @param {FixedAnimatedNavbarProps} props - A list of properties.
+ * @constructor
+ */
 function FixedAnimatedNavbar(props: FixedAnimatedNavbarProps): JSX.Element {
   const text = "J. Y. Julian Wong";
   const tickInterval = 750;
@@ -23,33 +28,23 @@ function FixedAnimatedNavbar(props: FixedAnimatedNavbarProps): JSX.Element {
   }, []);
 
   return (
-    <Navbar className="bg-white" expand="sm">
-      <Container className="px-3">
+    <header className="nav-wrap">
+      <Navbar className="nav-pill glass">
         <Navbar.Brand href="/">
           {props.imageSource && (
             <img
               src={props.imageSource}
-              alt={"FixedAnimatedNavbar.imageSource"}
-              width={30}
-              height={30}
-              className={"d-inline-block align-center"}
+              alt=""
+              className="nav-logo"
             />
-          )}{" "}
-          <p style={{display: "inline"}}>{"> " + text}</p>
-          <p style={{
-            display: "inline",
-            visibility: (tick % 2 == 0) ? "hidden" : "inherit"
-          }}>_</p>
+          )}
+          <span className="nav-cursor-text">
+            {"> " + text}
+            <span style={{visibility: (tick % 2 === 0) ? "hidden" : "inherit"}}>_</span>
+          </span>
         </Navbar.Brand>
-        {/*<Navbar.Toggle aria-controls="basic-navbar-nav"/>*/}
-        {/*<Navbar.Collapse id="basic-navbar-nav">*/}
-        {/*  <Nav className="me-auto">*/}
-        {/*    <Nav.Link href="/">Home</Nav.Link>*/}
-        {/*    <Nav.Link href="/#/top100cars">Top 100 Cars</Nav.Link>*/}
-        {/*  </Nav>*/}
-        {/*</Navbar.Collapse>*/}
-      </Container>
-    </Navbar>
+      </Navbar>
+    </header>
   );
 }
 

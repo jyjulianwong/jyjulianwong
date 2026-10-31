@@ -1,5 +1,3 @@
-import {Badge, Container, Stack} from 'react-bootstrap';
-
 interface BannerCardProps {
   imageSource?: string;
   title: string;
@@ -8,50 +6,27 @@ interface BannerCardProps {
 }
 
 /**
- * A card component displaying a profile banner.
+ * A hero card displaying a profile banner.
  * @param {BannerCardProps} props - A list of properties.
  * @constructor
  */
 function BannerCard(props: BannerCardProps): JSX.Element {
-  const bgClassName = props.imageSource ? "bg-image" : props.darkened ? "bg-black" : "bg-white";
-  const labels = Array
-    .from(props.labels)
+  const labels = props.labels
     .filter((label: string) => label !== "")
-    .map((label: string, index: number) => {
-        return (
-          <Badge
-            key={index}
-            pill
-            bg={props.darkened ? "light" : "dark"}
-            text={props.darkened ? "dark" : "light"}
-          >
-            {label}
-          </Badge>
-        );
-      }
-    );
+    .map((label: string) => <li key={label} className="chip">{label}</li>);
+
   return (
-    <div
-      className={"d-flex justify-content-center align-items-center" + " " + bgClassName}
-      style={{
-        height: 220,
+    <section
+      className="hero glass section"
+      style={props.imageSource ? {
         backgroundImage: "url(" + props.imageSource + ")",
         backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
         backgroundPosition: "center"
-      }}
+      } : undefined}
     >
-      <Container className={"p-3"}>
-        <h1><b>{props.title}</b></h1>
-        <Stack
-          className={"d-flex flex-wrap justify-content-center align-items-center"}
-          direction={"horizontal"}
-          gap={2}
-        >
-          {labels}
-        </Stack>
-      </Container>
-    </div>
+      <h1 className="hero-title">{props.title}</h1>
+      <ul className="chip-row list-unstyled mb-0">{labels}</ul>
+    </section>
   );
 }
 

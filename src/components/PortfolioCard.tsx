@@ -1,5 +1,3 @@
-import {Col, Container, Row} from 'react-bootstrap';
-
 interface PortfolioCardProps {
   imageSource?: string;
   title: string;
@@ -14,60 +12,39 @@ interface PortfolioCardProps {
 }
 
 /**
- * A card component displaying a portfolio project.
+ * A glass card component displaying a portfolio project.
  * @param {PortfolioCardProps} props - A list of properties.
  * @constructor
  */
 function PortfolioCard(props: PortfolioCardProps): JSX.Element {
-  const bgClassName = props.darkened ? "bg-black" : "bg-white";
+  const meta: [string, string][] = [
+    ["Company", props.company],
+    ["Position", props.position],
+    ["Location", props.location],
+    ["Duration", props.duration],
+  ];
 
   return (
-    <div className={"px-3 py-5" + " " + bgClassName}>
-      <Row className={"gx-1 gy-3"}>
-        <Col xs={12}>
-          <Container>
-            <h1>{props.title}</h1>
-            <h6>{props.description}</h6>
-            {props.redirect && props.redirectText && (
-              <h5><a href={props.redirect} style={{textDecoration: "none"}}>{props.redirectText} &gt;</a></h5>
-            )}
-          </Container>
-        </Col>
-        <Col xs={12}>
-          {props.imageSource && (
-            <img
-              src={props.imageSource}
-              alt={"PortfolioCard.imageSource"}
-              style={{maxWidth: "100%", maxHeight: 480, width: "auto", height: "auto"}}
-            />
-          )}
-        </Col>
-        <Col xs={6} md={3}>
-          <Container>
-            Company
-            <h6>{props.company}</h6>
-          </Container>
-        </Col>
-        <Col xs={6} md={3}>
-          <Container>
-            Position
-            <h6>{props.position}</h6>
-          </Container>
-        </Col>
-        <Col xs={6} md={3}>
-          <Container>
-            Location
-            <h6>{props.location}</h6>
-          </Container>
-        </Col>
-        <Col xs={6} md={3}>
-          <Container>
-            Duration
-            <h6>{props.duration}</h6>
-          </Container>
-        </Col>
-      </Row>
-    </div>
+    <article className="portfolio-card glass">
+      <h2 className="portfolio-title">{props.title}</h2>
+      <p className="portfolio-description">{props.description}</p>
+      {props.redirect && props.redirectText && (
+        <a className="link-arrow" href={props.redirect}>{props.redirectText} &rarr;</a>
+      )}
+      {props.imageSource && (
+        <div className="portfolio-media">
+          <img src={props.imageSource} alt={props.title + " preview"} loading="lazy"/>
+        </div>
+      )}
+      <dl className="meta-grid">
+        {meta.map(([label, value]) => (
+          <div key={label}>
+            <dt>{label}</dt>
+            <dd>{value}</dd>
+          </div>
+        ))}
+      </dl>
+    </article>
   );
 }
 
