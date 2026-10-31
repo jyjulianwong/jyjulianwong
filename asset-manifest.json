@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.fd8810c3.css",
+    "main.css": "/static/css/main.995154aa.css",
     "main.js": "/static/js/main.9fb2f2b8.js",
     "static/js/453.5d825beb.chunk.js": "/static/js/453.5d825beb.chunk.js",
     "static/media/ferrari458italia.jpeg": "/static/media/ferrari458italia.9995d5f23350ecd4868f.jpeg",
@@ -112,12 +112,12 @@
     "static/media/github.png": "/static/media/github.f11021803f68852df283.png",
     "static/media/email.png": "/static/media/email.51b08bcbb5af7a861c31.png",
     "index.html": "/index.html",
-    "main.fd8810c3.css.map": "/static/css/main.fd8810c3.css.map",
+    "main.995154aa.css.map": "/static/css/main.995154aa.css.map",
     "main.9fb2f2b8.js.map": "/static/js/main.9fb2f2b8.js.map",
     "453.5d825beb.chunk.js.map": "/static/js/453.5d825beb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fd8810c3.css",
+    "static/css/main.995154aa.css",
     "static/js/main.9fb2f2b8.js"
   ]
 }
