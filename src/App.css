@@ -3,7 +3,7 @@
    Glassmorphism, minimal. Light by default; dark follows the OS setting.
    ========================================================================== */
 :root {
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --text: #111827;
   --text-muted: #4b5563;
@@ -238,7 +238,11 @@ button:focus-visible {
 }
 
 .chip {
-  padding: 0.35rem 0.85rem;
+  --dot: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.4rem 0.9rem 0.4rem 0.75rem;
   font-size: 0.8rem;
   font-weight: 500;
   color: var(--text);
@@ -247,6 +251,37 @@ button:focus-visible {
   border-radius: 999px;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
+  transition: transform 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.chip:hover {
+  background: var(--glass-bg-hover);
+  transform: translateY(-2px);
+}
+
+/* Pulsing status dot: a solid core with an expanding, fading ring. */
+.chip-dot {
+  position: relative;
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dot);
+}
+
+.chip-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--dot);
+  animation: chip-pulse 2.4s ease-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes chip-pulse {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  70%, 100% { transform: scale(3.2); opacity: 0; }
 }
 
 /* ==========================================================================
@@ -586,6 +621,8 @@ button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .ambient-blob { animation: none; }
+  .chip-dot::after { animation: none; display: none; }
+  .chip { transition: none; }
   .apps-carousel-skeleton-shimmer {
     animation: none;
     background: rgba(128, 128, 128, 0.2);
