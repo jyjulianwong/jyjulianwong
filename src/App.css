@@ -3,6 +3,7 @@
    Glassmorphism, minimal. Light by default; dark follows the OS setting.
    ========================================================================== */
 :root {
+  --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
   --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --text: #111827;
@@ -221,9 +222,12 @@ button:focus-visible {
 
 .hero-title {
   margin: 0 0 1.5rem;
-  font-size: clamp(2.5rem, 8vw, 4.5rem);
-  font-weight: 700;
-  letter-spacing: -0.04em;
+  font-family: var(--font-display);
+  /* Instrument Serif ships a single weight; avoid faux-bold. */
+  font-weight: 400;
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
   background: linear-gradient(135deg, var(--text) 30%, var(--accent));
   -webkit-background-clip: text;
   background-clip: text;
