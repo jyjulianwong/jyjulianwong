@@ -1,7 +1,7 @@
 import {useCallback, useEffect, useRef, useState} from "react";
 
 const GITHUB_USERNAME = "jyjulianwong";
-const CACHE_KEY = "apps-carousel-cache-v3";
+const CACHE_KEY = "apps-carousel-cache-v4";
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
 const fallbackIconSource = require("../assets/apple-touch-icon.png");
 
@@ -22,6 +22,38 @@ interface GitHubRepo {
 }
 
 /**
+ * Resolves the actual URL a GitHub Pages site is served at. Repos with a
+ * custom domain configured (e.g. this account's own *.jyjwong.com
+ * subdomains) 301-redirect the default `<owner>.github.io/<repo>/` URL to
+ * that domain — assuming that default pattern directly, rather than asking
+ * GitHub for the real one, means following a redirect that is sometimes
+ * (briefly, while a newly-configured custom domain's HTTPS enforcement is
+ * still propagating) to a plain `http://` target. A `fetch()` from this
+ * HTTPS site cannot follow a redirect to an insecure endpoint — it's
+ * blocked as mixed content — so the app would silently vanish from the
+ * list rather than error visibly. Asking the Pages API directly for
+ * `html_url` sidesteps the redirect (and that failure mode) entirely; the
+ * default-pattern URL is only a fallback for when that lookup itself
+ * fails (rate-limited, repo not found, etc.).
+ * @param {GitHubRepo} repo - The repository to resolve.
+ * @return {Promise<string>} The Pages site's real URL.
+ */
+async function resolvePagesUrl(repo: GitHubRepo): Promise<string> {
+  const defaultUrl = `https://${repo.owner.login}.github.io/${repo.name}/`;
+  try {
+    const res = await fetch(
+      `https://api.github.com/repos/${repo.owner.login}/${repo.name}/pages`,
+      {headers: {Accept: "application/vnd.github+json"}}
+    );
+    if (!res.ok) return defaultUrl;
+    const pages = await res.json();
+    return typeof pages.html_url === "string" && pages.html_url ? pages.html_url : defaultUrl;
+  } catch {
+    return defaultUrl;
+  }
+}
+
+/**
  * Fetches the deployed page for a GitHub Pages-enabled repository and
  * extracts its title and icon so the app can be listed without any manual
  * bookkeeping as new repositories are published or removed. The Apple touch
@@ -31,7 +63,7 @@ interface GitHubRepo {
  * @return {Promise<AppInfo | null>} The resolved app, or null if the page could not be read.
  */
 async function resolveApp(repo: GitHubRepo): Promise<AppInfo | null> {
-  const pagesUrl = `https://${repo.owner.login}.github.io/${repo.name}/`;
+  const pagesUrl = await resolvePagesUrl(repo);
   try {
     const res = await fetch(pagesUrl);
     if (!res.ok) return null;
