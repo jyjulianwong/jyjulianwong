@@ -1,7 +1,7 @@
 import {useCallback, useEffect, useRef, useState} from "react";
 
 const GITHUB_USERNAME = "jyjulianwong";
-const CACHE_KEY = "apps-carousel-cache-v4";
+const CACHE_KEY = "apps-carousel-cache-v6";
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
 const fallbackIconSource = require("../assets/apple-touch-icon.png");
 
@@ -18,6 +18,7 @@ interface GitHubRepo {
   description: string | null;
   fork: boolean;
   has_pages: boolean;
+  homepage: string | null;
   owner: { login: string };
 }
 
@@ -40,6 +41,15 @@ interface GitHubRepo {
  */
 async function resolvePagesUrl(repo: GitHubRepo): Promise<string> {
   const defaultUrl = `https://${repo.owner.login}.github.io/${repo.name}/`;
+  // The repo's "website" field is returned by the (unauthenticated) repo
+  // listing, whereas the Pages API below requires push access and so 404s
+  // for visitors. Prefer it when set.
+  const homepage = repo.homepage?.trim();
+  if (homepage) {
+    // Tolerate values entered without a scheme (e.g. "app.jyjwong.com") or
+    // with an insecure one; always serve over https.
+    return `https://${homepage.replace(/^[a-z][a-z0-9+.-]*:\/\//i, "").replace(/^\/+/, "")}`;
+  }
   try {
     const res = await fetch(
       `https://api.github.com/repos/${repo.owner.login}/${repo.name}/pages`,
@@ -66,7 +76,7 @@ async function resolveApp(repo: GitHubRepo): Promise<AppInfo | null> {
   const pagesUrl = await resolvePagesUrl(repo);
   try {
     const res = await fetch(pagesUrl);
-    if (!res.ok) return null;
+    if (!res.ok) throw new Error(`Failed to load ${pagesUrl}`);
 
     const doc = new DOMParser().parseFromString(await res.text(), "text/html");
     const title = doc.querySelector("title")?.textContent?.trim() || repo.name.replace(/[-_]/g, " ");
@@ -78,7 +88,16 @@ async function resolveApp(repo: GitHubRepo): Promise<AppInfo | null> {
 
     return {name: repo.name, title, description: repo.description || "", url: pagesUrl, favicon};
   } catch {
-    return null;
+    // The page's metadata couldn't be read (e.g. a CORS-less redirect to a
+    // custom domain). Still list the app, with a generated title and the
+    // fallback icon, rather than silently dropping it.
+    return {
+      name: repo.name,
+      title: repo.name.replace(/[-_]/g, " "),
+      description: repo.description || "",
+      url: pagesUrl,
+      favicon: fallbackIconSource,
+    };
   }
 }
 
