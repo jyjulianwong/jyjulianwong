@@ -1,7 +1,7 @@
 import {useCallback, useEffect, useRef, useState} from "react";
 
 const GITHUB_USERNAME = "jyjulianwong";
-const CACHE_KEY = "apps-carousel-cache-v5";
+const CACHE_KEY = "apps-carousel-cache-v6";
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
 const fallbackIconSource = require("../assets/apple-touch-icon.png");
 
@@ -43,9 +43,12 @@ async function resolvePagesUrl(repo: GitHubRepo): Promise<string> {
   const defaultUrl = `https://${repo.owner.login}.github.io/${repo.name}/`;
   // The repo's "website" field is returned by the (unauthenticated) repo
   // listing, whereas the Pages API below requires push access and so 404s
-  // for visitors. Prefer it when it is a valid https URL.
-  if (repo.homepage && /^https:\/\//i.test(repo.homepage.trim())) {
-    return repo.homepage.trim();
+  // for visitors. Prefer it when set.
+  const homepage = repo.homepage?.trim();
+  if (homepage) {
+    // Tolerate values entered without a scheme (e.g. "app.jyjwong.com") or
+    // with an insecure one; always serve over https.
+    return `https://${homepage.replace(/^[a-z][a-z0-9+.-]*:\/\//i, "").replace(/^\/+/, "")}`;
   }
   try {
     const res = await fetch(
