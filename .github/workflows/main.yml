@@ -6,7 +6,20 @@ on:
       - master
 
 jobs:
+  scan-vulnerabilities:
+    name: Scan Vulnerabilities
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.3.1
+        with:
+          fetch-depth: 0
+      - name: Scan for secrets
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   build-and-deploy:
+    needs: scan-vulnerabilities
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
