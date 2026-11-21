@@ -6,8 +6,8 @@ on:
       - master
 
 jobs:
-  scan-vulnerabilities:
-    name: Scan Vulnerabilities
+  security-scan:
+    name: Security scan
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.3.1
@@ -19,18 +19,18 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   build-and-deploy:
-    needs: scan-vulnerabilities
+    needs: security-scan
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
+      - name: 🛎️ Checkout
         uses: actions/checkout@v2.3.1
 
-      - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+      - name: 🔧 Install and build # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
         run: |
           npm install
           npm run build
 
-      - name: Deploy 🚀
+      - name: 🚀 Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages # The branch the action should deploy to.
